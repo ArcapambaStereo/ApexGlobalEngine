@@ -12,11 +12,11 @@
             --neon-emerald: #10b981;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --card-border: rgba(255, 255, 255, 0.12);
+            --card-border: rgba(255, 255, 255, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg-deep); color: var(--text-main); min-height: 100vh; overflow-x: hidden; }
+        body { background-color: var(--bg-deep); color: var(--text-main); min-height: 100vh; overflow-x: hidden; padding-bottom: 50px; }
 
         header { background: rgba(5, 5, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 1000; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; }
         .brand { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #60a5fa, #34d399, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -24,44 +24,44 @@
 
         .wrapper { max-width: 1700px; margin: 0 auto; padding: 40px 5%; }
 
-        .hero { text-align: center; margin-bottom: 50px; }
-        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; color: #fff; }
+        .hero { text-align: center; margin-bottom: 40px; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; color: #fff; }
         .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto 30px; line-height: 1.5; }
 
         .search-box { max-width: 650px; margin: 0 auto 30px; position: relative; }
         .search-box input { width: 100%; background: var(--surface); border: 1px solid var(--card-border); padding: 18px 25px; border-radius: 16px; color: #fff; font-size: 1rem; outline: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .search-box input:focus { border-color: var(--neon-emerald); }
 
-        .filter-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 50px; }
+        .filter-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
         .chip { background: var(--surface); border: 1px solid var(--card-border); color: var(--text-muted); padding: 10px 22px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; font-size: 0.9rem; }
         .chip:hover, .chip.active { background: var(--neon-emerald); color: #000; border-color: var(--neon-emerald); font-weight: 700; }
 
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 30px; }
         
-        .product-card { background: var(--surface); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease; position: relative; }
-        .product-card:hover { transform: translateY(-5px); border-color: rgba(16, 185, 129, 0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.7); }
+        /* TARJETA BLINDADA: ALTURA AUTOMÁTICA Y ESPACIO HOLGADO */
+        .product-card { background: var(--surface); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s ease; position: relative; }
+        .product-card:hover { transform: translateY(-5px); border-color: rgba(16, 185, 129, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
 
-        .card-badge { position: absolute; top: 15px; right: 15px; background: rgba(16, 185, 129, 0.2); color: var(--neon-emerald); border: 1px solid rgba(16, 185, 129, 0.4); font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border-radius: 8px; text-transform: uppercase; z-index: 10; font-family: 'JetBrains Mono', monospace; }
+        .card-badge { position: absolute; top: 15px; right: 15px; background: rgba(16, 185, 129, 0.25); color: var(--neon-emerald); border: 1px solid rgba(16, 185, 129, 0.5); font-size: 0.75rem; font-weight: 800; padding: 6px 12px; border-radius: 8px; text-transform: uppercase; z-index: 10; font-family: 'JetBrains Mono', monospace; }
 
-        .img-container { width: 100%; height: 230px; background: #0b0c10; position: relative; overflow: hidden; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .product-card:hover .img-container img { transform: scale(1.04); }
+        .img-container { width: 100%; height: 240px; background: #0b0c10; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .img-container img, .img-container video { width: 100%; height: 100%; object-fit: cover; }
 
-        .card-content { padding: 25px; display: flex; flex-direction: column; gap: 15px; }
-        .category-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 700; }
+        .card-content { padding: 25px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1; }
+        .category-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 800; }
         
         .product-title { font-size: 1.3rem; font-weight: 800; color: #fff; line-height: 1.3; }
         .product-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
-        /* PRECIO 100% VISIBLE Y GARANTIZADO */
-        .price-box { background: rgba(16, 185, 129, 0.15); padding: 16px 20px; border-radius: 14px; border: 1px solid rgba(16, 185, 129, 0.5); display: flex; align-items: center; justify-content: space-between; }
+        /* PRECIOS CORREGIDOS Y VISIBLES AL 100% */
+        .price-box { background: rgba(16, 185, 129, 0.15); padding: 18px 20px; border-radius: 14px; border: 1px solid rgba(16, 185, 129, 0.5); display: flex; align-items: center; justify-content: space-between; margin-top: 5px; }
         .price-label { font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 800; font-family: 'JetBrains Mono', monospace; line-height: 1.3; }
-        .price-amount { font-family: 'JetBrains Mono', monospace; font-size: 2.3rem; font-weight: 800; color: #ffffff; letter-spacing: -1px; text-shadow: 0 0 12px rgba(16,185,129,0.5); }
+        .price-amount { font-family: 'JetBrains Mono', monospace; font-size: 2.5rem !important; font-weight: 800 !important; color: #ffffff !important; letter-spacing: -1px; text-shadow: 0 0 15px rgba(16,185,129,0.7); display: block !important; visibility: visible !important; opacity: 1 !important; }
 
-        .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+        .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); margin-top: 10px; }
         .action-btn:hover { background: #059669; color: #fff; }
 
-        /* MODAL */
+        /* MODAL DE CHECKOUT */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 2000; display: none; justify-content: center; align-items: center; padding: 20px; }
         .modal-card { background: #0f1017; border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 24px; width: 100%; max-width: 500px; padding: 30px; box-shadow: 0 25px 60px rgba(0,0,0,0.9); }
         .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 15px; }
@@ -84,7 +84,7 @@
 
     <header>
         <div class="brand">Aura Global Empire™</div>
-        <div class="brand-tag">ENGINE v17.8 (PRICES RESTORED)</div>
+        <div class="brand-tag">ENGINE v17.9 (PRICES & VIDEO FIXED)</div>
     </header>
 
     <div class="wrapper">
@@ -108,37 +108,48 @@
 
         <div class="catalog-grid" id="mainGrid">
 
-            <!-- PRODUCTO ESTRELLA: CÁMARA SOLAR 4G CON FOTO REAL DE ALTA CALIDAD -->
+            <!-- PRODUCTO 1: CÁMARA SOLAR 4G CON VIDEO EN BUCLE REAL (USANDO LINK DIRECTO DE VIDEO) -->
             <div class="product-card" data-cat="tech" data-key="camara seguridad solar panel 4g sim vision nocturna color">
-                <div class="card-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; border-color: rgba(239, 68, 68, 0.4);">¡Top Ventas!</div>
+                <div class="card-badge">🔥 Viral / Video en Acción</div>
                 <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&q=80" alt="Cámara Solar 4G">
+                    <!-- Video en bucle automático de demostración real -->
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-security-camera-recording-a-street-42866-large.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="card-content">
-                    <span class="category-tag">Seguridad Avanzada Anti-Ladrones</span>
-                    <h3 class="product-title">Cámara Solar 4G & Panel Ultra Pro</h3>
-                    <p class="product-desc">Se instala en 5 min sin cables ni Wi-Fi. Con tarjeta SIM 4G, batería 9000mAh, rotación 360º y visión nocturna a color.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
+                    <div>
+                        <span class="category-tag">Seguridad Avanzada Anti-Ladrones</span>
+                        <h3 class="product-title">Cámara Solar 4G & Panel Ultra Pro</h3>
+                        <p class="product-desc">Se instala en 5 min sin cables ni Wi-Fi. Con tarjeta SIM 4G, batería 9000mAh, rotación 360º y visión nocturna a color.</p>
                     </div>
-                    <button class="action-btn" onclick="openCheckout('Cámara Solar 4G & Panel Ultra Pro', 115)">⚡ Comprar Automático</button>
+                    <div>
+                        <div class="price-box">
+                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                            <span class="price-amount"></span>
+                        </div>
+                        <button class="action-btn" onclick="openCheckout('Cámara Solar 4G & Panel Ultra Pro', 115)">⚡ Comprar Automático</button>
+                    </div>
                 </div>
             </div>
 
             <!-- PRODUCTO 2 -->
             <div class="product-card" data-cat="tech" data-key="nuevo producto estrella estrella top">
-                <div class="card-badge" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border-color: rgba(59, 130, 246, 0.4);">¡Nuevo!</div>
+                <div class="card-badge">¡Nuevo!</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <span class="category-tag">Gadgets Estrella</span>
-                    <h3 class="product-title">Aura Ultimate Tech Device Pro</h3>
-                    <p class="product-desc">Dispositivo tecnológico de alta gama incorporado recientemente al ecosistema.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
+                    <div>
+                        <span class="category-tag">Gadgets Estrella</span>
+                        <h3 class="product-title">Aura Ultimate Tech Device Pro</h3>
+                        <p class="product-desc">Dispositivo tecnológico de alta gama incorporado recientemente al ecosistema.</p>
                     </div>
-                    <button class="action-btn" onclick="openCheckout('Aura Ultimate Tech Device Pro', 89)">⚡ Comprar Automático</button>
+                    <div>
+                        <div class="price-box">
+                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                            <span class="price-amount"></span>
+                        </div>
+                        <button class="action-btn" onclick="openCheckout('Aura Ultimate Tech Device Pro', 89)">⚡ Comprar Automático</button>
+                    </div>
                 </div>
             </div>
 
@@ -147,14 +158,18 @@
                 <div class="card-badge">Más Vendido</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <span class="category-tag">Salud & Tech</span>
-                    <h3 class="product-title">Smart Ring Pro - Anillo Biométrico</h3>
-                    <p class="product-desc">Monitoreo avanzado de sueño, ritmo cardíaco y actividad física en titanio ultrarresistente.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
+                    <div>
+                        <span class="category-tag">Salud & Tech</span>
+                        <h3 class="product-title">Smart Ring Pro - Anillo Biométrico</h3>
+                        <p class="product-desc">Monitoreo avanzado de sueño, ritmo cardíaco y actividad física en titanio ultrarresistente.</p>
                     </div>
-                    <button class="action-btn" onclick="openCheckout('Smart Ring Pro - Anillo Biométrico', 65)">⚡ Comprar Automático</button>
+                    <div>
+                        <div class="price-box">
+                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                            <span class="price-amount"></span>
+                        </div>
+                        <button class="action-btn" onclick="openCheckout('Smart Ring Pro - Anillo Biométrico', 65)">⚡ Comprar Automático</button>
+                    </div>
                 </div>
             </div>
 
@@ -163,14 +178,18 @@
                 <div class="card-badge">Tendencia</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <span class="category-tag">Tecnología Aérea</span>
-                    <h3 class="product-title">Mini Dron 4K Ultra HD Plegable</h3>
-                    <p class="product-desc">Cámara dual de alta definición, autonomía extendida y control inteligente por gestos.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
+                    <div>
+                        <span class="category-tag">Tecnología Aérea</span>
+                        <h3 class="product-title">Mini Dron 4K Ultra HD Plegable</h3>
+                        <p class="product-desc">Cámara dual de alta definición, autonomía extendida y control inteligente por gestos.</p>
                     </div>
-                    <button class="action-btn" onclick="openCheckout('Mini Dron 4K Ultra HD Plegable', 86)">⚡ Comprar Automático</button>
+                    <div>
+                        <div class="price-box">
+                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                            <span class="price-amount"></span>
+                        </div>
+                        <button class="action-btn" onclick="openCheckout('Mini Dron 4K Ultra HD Plegable', 86)">⚡ Comprar Automático</button>
+                    </div>
                 </div>
             </div>
 
@@ -179,100 +198,44 @@
                 <div class="card-badge">Popular</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <span class="category-tag">Entretenimiento</span>
-                    <h3 class="product-title">Proyector Portátil Inteligente 4K</h3>
-                    <p class="product-desc">Cine en casa compacto con rotación de 180 grados y conectividad Wi-Fi integrada.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
+                    <div>
+                        <span class="category-tag">Entretenimiento</span>
+                        <h3 class="product-title">Proyector Portátil Inteligente 4K</h3>
+                        <p class="product-desc">Cine en casa compacto con rotación de 180 grados y conectividad Wi-Fi integrada.</p>
                     </div>
-                    <button class="action-btn" onclick="openCheckout('Proyector Portátil Inteligente 4K', 75)">⚡ Comprar Automático</button>
+                    <div>
+                        <div class="price-box">
+                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                            <span class="price-amount"></span>
+                        </div>
+                        <button class="action-btn" onclick="openCheckout('Proyector Portátil Inteligente 4K', 75)">⚡ Comprar Automático</button>
+                    </div>
                 </div>
             </div>
 
             <!-- PRODUCTO 6 -->
-            <div class="product-card" data-cat="tech" data-key="estacion carga usb organizador cables escritorio">
-                <div class="card-badge">Alta Rotación</div>
-                <div class="img-container"><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=700&q=80" loading="lazy"></div>
-                <div class="card-content">
-                    <span class="category-tag">Accesorios Tech</span>
-                    <h3 class="product-title">Estación Carga Rápida USB-C</h3>
-                    <p class="product-desc">Multi-puerto de carga rápida con protección contra sobrecalentamiento para escritorios.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
-                    </div>
-                    <button class="action-btn" onclick="openCheckout('Estación Carga Rápida USB-C', 33)">⚡ Comprar Automático</button>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 7 -->
             <div class="product-card" data-cat="music" data-key="fl studio vst samplers librerias techno tech house">
                 <div class="card-badge">Exclusivo Pro</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <span class="category-tag">Producción Musical</span>
-                    <h3 class="product-title">Aura Producer Vault: FL Studio Pack</h3>
-                    <p class="product-desc">Librería profesional para Tech House, Melodic Techno. Incluye loops, VSTs y master track (3:58).</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
+                    <div>
+                        <span class="category-tag">Producción Musical</span>
+                        <h3 class="product-title">Aura Producer Vault: FL Studio Pack</h3>
+                        <p class="product-desc">Librería profesional para Tech House, Melodic Techno. Incluye loops, VSTs y master track (3:58).</p>
                     </div>
-                    <button class="action-btn" onclick="openCheckout('Aura Producer Vault: FL Studio Pack', 28)">⚡ Descarga Automática</button>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 8 -->
-            <div class="product-card" data-cat="music" data-key="plugins vst sintetizadores fl studio ableton audio">
-                <div class="card-badge">Producción Pro</div>
-                <div class="img-container"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80" loading="lazy"></div>
-                <div class="card-content">
-                    <span class="category-tag">Activos Digitales</span>
-                    <h3 class="product-title">Aura VST Suite: Sintetizadores Pro</h3>
-                    <p class="product-desc">Colección de plugins de compresión, ecualización y sintetizadores analógicos virtuales.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
+                    <div>
+                        <div class="price-box">
+                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                            <span class="price-amount"></span>
+                        </div>
+                        <button class="action-btn" onclick="openCheckout('Aura Producer Vault: FL Studio Pack', 28)">⚡ Descarga Automática</button>
                     </div>
-                    <button class="action-btn" onclick="openCheckout('Aura VST Suite: Sintetizadores Pro', 38)">⚡ Descarga Automática</button>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 9 -->
-            <div class="product-card" data-cat="dj" data-key="serato dj pro remix packs edicion club musica">
-                <div class="card-badge">Para DJs</div>
-                <div class="img-container"><img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80" loading="lazy"></div>
-                <div class="card-content">
-                    <span class="category-tag">Performance DJ</span>
-                    <h3 class="product-title">Serato DJ Pro & Club Remix Vault</h3>
-                    <p class="product-desc">Packs de remixes extendidos, edits de club y stems optimizados para Serato y Pioneer CDJs.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
-                    </div>
-                    <button class="action-btn" onclick="openCheckout('Serato DJ Pro & Club Remix Vault', 18)">⚡ Descarga Automática</button>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 10 -->
-            <div class="product-card" data-cat="events" data-key="sonido profesional luces tarimas maquina humo eventos bodas">
-                <div class="card-badge">Servicio Pro</div>
-                <div class="img-container"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80" loading="lazy"></div>
-                <div class="card-content">
-                    <span class="category-tag">Espectáculos</span>
-                    <h3 class="product-title">Aura Live Production: Sonido JBL & Luces</h3>
-                    <p class="product-desc">Alquiler integral de equipos de audio profesional, iluminación inteligente y tarimas.</p>
-                    <div class="price-box">
-                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                        <span class="price-amount"></span>
-                    </div>
-                    <button class="action-btn" onclick="openCheckout('Aura Live Production: Sonido JBL & Luces', 160)">⚡ Reservar Automático</button>
                 </div>
             </div>
 
         </div>
 
-        <!-- MODAL DE CHECKOUT AUTOMÁTICO -->
+        <!-- MODAL DE CHECKOUT -->
         <div class="modal-overlay" id="checkoutModal">
             <div class="modal-card">
                 <div class="modal-header">
