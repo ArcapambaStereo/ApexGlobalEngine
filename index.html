@@ -38,7 +38,6 @@
 
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 30px; }
         
-        /* TARJETA BLINDADA: ALTURA AUTOMÁTICA Y SEPARACIÓN CLARA */
         .product-card { background: var(--surface); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s ease; position: relative; }
         .product-card:hover { transform: translateY(-5px); border-color: rgba(16, 185, 129, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
 
@@ -53,10 +52,8 @@
         .product-title { font-size: 1.3rem; font-weight: 800; color: #fff; line-height: 1.3; }
         .product-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
-        /* PRECIOS CORREGIDOS CON GRID ESTRICTO (IMPOSIBLE QUE SE OCULTEN) */
-        .price-container { background: rgba(16, 185, 129, 0.15); padding: 16px 20px; border-radius: 14px; border: 1px solid rgba(16, 185, 129, 0.5); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; margin-top: 10px; width: 100%; }
-        .price-label { font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 800; font-family: 'JetBrains Mono', monospace; line-height: 1.3; }
-        .price-amount { font-family: 'JetBrains Mono', monospace; font-size: 2.3rem; font-weight: 800; color: #ffffff; letter-spacing: -1px; text-shadow: 0 0 12px rgba(16,185,129,0.6); text-align: right; }
+        /* ESTILOS DE PRECIO INLINE & FORZADOS */
+        .price-box-wrapper { background: rgba(16, 185, 129, 0.18); padding: 16px 20px; border-radius: 14px; border: 1px solid rgba(16, 185, 129, 0.6); display: flex; justify-content: space-between; align-items: center; margin-top: 10px; width: 100%; }
 
         .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); margin-top: 12px; }
         .action-btn:hover { background: #059669; color: #fff; }
@@ -87,7 +84,7 @@
 
     <header>
         <div class="brand">Aura Global Empire™</div>
-        <div class="brand-tag">ENGINE v18.0 (PRICES & VIDEO FIXED)</div>
+        <div class="brand-tag">ENGINE v18.1 (JS PRICES INJECTION)</div>
     </header>
 
     <div class="wrapper">
@@ -111,8 +108,8 @@
 
         <div class="catalog-grid" id="mainGrid">
 
-            <!-- PRODUCTO 1: CÁMARA SOLAR 4G CON VIDEO INTERACTIVO Y ACCESO DIRECTO AL SHORT -->
-            <div class="product-card" data-cat="tech" data-key="camara seguridad solar panel 4g sim vision nocturna color">
+            <!-- PRODUCTO 1: CÁMARA SOLAR 4G -->
+            <div class="product-card" data-cat="tech" data-key="camara seguridad solar panel 4g sim vision nocturna color" data-price="115">
                 <div class="card-badge">🔥 Viral / Video Real</div>
                 <div class="img-container">
                     <video autoplay muted loop playsinline>
@@ -127,9 +124,9 @@
                         <a href="https://youtube.com/shorts/Q9sD2XSpcrg" target="_blank" class="video-btn">▶ Ver Video Original en YouTube</a>
                     </div>
                     <div>
-                        <div class="price-container">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
+                        <div class="price-box-wrapper">
+                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
+                            <span class="price-target" style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
                         </div>
                         <button class="action-btn" onclick="openCheckout('Cámara Solar 4G & Panel Ultra Pro', 115)">⚡ Comprar Automático</button>
                     </div>
@@ -137,7 +134,7 @@
             </div>
 
             <!-- PRODUCTO 2 -->
-            <div class="product-card" data-cat="tech" data-key="nuevo producto estrella estrella top">
+            <div class="product-card" data-cat="tech" data-key="nuevo producto estrella estrella top" data-price="89">
                 <div class="card-badge">¡Nuevo!</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
@@ -147,9 +144,9 @@
                         <p class="product-desc">Dispositivo tecnológico de alta gama incorporado recientemente al ecosistema.</p>
                     </div>
                     <div>
-                        <div class="price-container">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
+                        <div class="price-box-wrapper">
+                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
+                            <span class="price-target" style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
                         </div>
                         <button class="action-btn" onclick="openCheckout('Aura Ultimate Tech Device Pro', 89)">⚡ Comprar Automático</button>
                     </div>
@@ -157,7 +154,7 @@
             </div>
 
             <!-- PRODUCTO 3 -->
-            <div class="product-card" data-cat="tech" data-key="smart ring pro anillo biometrico salud">
+            <div class="product-card" data-cat="tech" data-key="smart ring pro anillo biometrico salud" data-price="65">
                 <div class="card-badge">Más Vendido</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
@@ -167,9 +164,9 @@
                         <p class="product-desc">Monitoreo avanzado de sueño, ritmo cardíaco y actividad física en titanio ultrarresistente.</p>
                     </div>
                     <div>
-                        <div class="price-container">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
+                        <div class="price-box-wrapper">
+                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
+                            <span class="price-target" style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
                         </div>
                         <button class="action-btn" onclick="openCheckout('Smart Ring Pro - Anillo Biométrico', 65)">⚡ Comprar Automático</button>
                     </div>
@@ -177,7 +174,7 @@
             </div>
 
             <!-- PRODUCTO 4 -->
-            <div class="product-card" data-cat="tech" data-key="mini dron 4k ultra hd plegable camara">
+            <div class="product-card" data-cat="tech" data-key="mini dron 4k ultra hd plegable camara" data-price="86">
                 <div class="card-badge">Tendencia</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
@@ -187,9 +184,9 @@
                         <p class="product-desc">Cámara dual de alta definición, autonomía extendida y control inteligente por gestos.</p>
                     </div>
                     <div>
-                        <div class="price-container">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
+                        <div class="price-box-wrapper">
+                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
+                            <span class="price-target" style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
                         </div>
                         <button class="action-btn" onclick="openCheckout('Mini Dron 4K Ultra HD Plegable', 86)">⚡ Comprar Automático</button>
                     </div>
@@ -197,7 +194,7 @@
             </div>
 
             <!-- PRODUCTO 5 -->
-            <div class="product-card" data-cat="tech" data-key="proyector portatil inteligente 4k cine casa">
+            <div class="product-card" data-cat="tech" data-key="proyector portatil inteligente 4k cine casa" data-price="75">
                 <div class="card-badge">Popular</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
@@ -207,9 +204,9 @@
                         <p class="product-desc">Cine en casa compacto con rotación de 180 grados y conectividad Wi-Fi integrada.</p>
                     </div>
                     <div>
-                        <div class="price-container">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
+                        <div class="price-box-wrapper">
+                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
+                            <span class="price-target" style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
                         </div>
                         <button class="action-btn" onclick="openCheckout('Proyector Portátil Inteligente 4K', 75)">⚡ Comprar Automático</button>
                     </div>
@@ -217,7 +214,7 @@
             </div>
 
             <!-- PRODUCTO 6 -->
-            <div class="product-card" data-cat="music" data-key="fl studio vst samplers librerias techno tech house">
+            <div class="product-card" data-cat="music" data-key="fl studio vst samplers librerias techno tech house" data-price="28">
                 <div class="card-badge">Exclusivo Pro</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
@@ -227,9 +224,9 @@
                         <p class="product-desc">Librería profesional para Tech House, Melodic Techno. Incluye loops, VSTs y master track (3:58).</p>
                     </div>
                     <div>
-                        <div class="price-container">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
+                        <div class="price-box-wrapper">
+                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
+                            <span class="price-target" style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
                         </div>
                         <button class="action-btn" onclick="openCheckout('Aura Producer Vault: FL Studio Pack', 28)">⚡ Descarga Automática</button>
                     </div>
@@ -274,6 +271,17 @@
     </div>
 
     <script>
+        // SCRIPT DE REFUERZO DE PRECIOS POR JAVASCRIPT
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.product-card').forEach(card => {
+                const price = card.getAttribute('data-price');
+                const target = card.querySelector('.price-target');
+                if (price && target) {
+                    target.innerText = '$' + price;
+                }
+            });
+        });
+
         let currentProduct = '';
         let currentPrice = 0;
 
