@@ -38,7 +38,7 @@
 
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 30px; }
         
-        /* TARJETA BLINDADA DE ALTA CONVERSIÓN */
+        /* TARJETA BLINDADA: ALTURA FLEXIBLE PARA QUE NADA SE CORTE */
         .product-card { background: var(--surface); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s ease; position: relative; }
         .product-card:hover { transform: translateY(-5px); border-color: rgba(16, 185, 129, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
 
@@ -47,26 +47,40 @@
         .img-container { width: 100%; height: 240px; background: #0b0c10; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .img-container img, .img-container video { width: 100%; height: 100%; object-fit: cover; }
 
-        .card-content { padding: 25px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1; justify-content: space-between; }
+        .card-content { padding: 25px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1; }
         .category-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 800; }
         
         .product-title { font-size: 1.3rem; font-weight: 800; color: #fff; line-height: 1.3; }
         .product-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
-        /* CAJA DE PRECIO BLINDADA CON ESTILOS INLINE PARA GARANTIZAR VISIBILIDAD */
-        .price-box-final {
-            background: rgba(16, 185, 129, 0.18) !important;
-            padding: 16px 20px !important;
-            border-radius: 14px !important;
-            border: 1px solid rgba(16, 185, 129, 0.6) !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            margin-top: 10px !important;
-            width: 100% !important;
+        /* CAJA DE PRECIO 100% VISIBLE Y VERTICAL (IMPOSIBLE DE CORTAR) */
+        .price-box-bulletproof {
+            background: rgba(16, 185, 129, 0.18);
+            padding: 16px;
+            border-radius: 14px;
+            border: 2px solid rgba(16, 185, 129, 0.6);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-top: auto;
+        }
+        .price-box-bulletproof .p-label {
+            font-size: 0.7rem;
+            color: #10b981;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+        }
+        .price-box-bulletproof .p-amount {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 0 12px rgba(16,185,129,0.7);
+            line-height: 1;
         }
 
-        .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); margin-top: 12px; }
+        .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); margin-top: 10px; }
         .action-btn:hover { background: #059669; color: #fff; }
 
         .video-btn { display: inline-block; background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; text-decoration: none; margin-top: 8px; text-align: center; font-family: 'JetBrains Mono', monospace; }
@@ -95,7 +109,7 @@
 
     <header>
         <div class="brand">Aura Global Empire™</div>
-        <div class="brand-tag">ENGINE v18.2 (+100 PRODUCTS & PRICES)</div>
+        <div class="brand-tag">ENGINE v18.4 (+100 PRODUCTS & BULLETPROOF PRICES)</div>
     </header>
 
     <div class="wrapper">
@@ -119,7 +133,7 @@
 
         <div class="catalog-grid" id="mainGrid">
 
-            <!-- 1. CÁMARA SOLAR 4G (ESTRELLA CON VÍDEO) -->
+            <!-- 1. CÁMARA SOLAR 4G -->
             <div class="product-card" data-cat="tech" data-key="camara seguridad solar panel 4g sim vision nocturna color">
                 <div class="card-badge">🔥 Viral / Video Real</div>
                 <div class="img-container">
@@ -128,19 +142,16 @@
                     </video>
                 </div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Seguridad Avanzada Anti-Ladrones</span>
-                        <h3 class="product-title">Cámara Solar 4G & Panel Ultra Pro</h3>
-                        <p class="product-desc">Se instala en 5 min sin cables ni Wi-Fi. Con tarjeta SIM 4G, batería 9000mAh, rotación 360º y visión nocturna a color.</p>
-                        <a href="https://youtube.com/shorts/Q9sD2XSpcrg" target="_blank" class="video-btn">▶ Ver Video Original en YouTube</a>
+                    <span class="category-tag">Seguridad Avanzada Anti-Ladrones</span>
+                    <h3 class="product-title">Cámara Solar 4G & Panel Ultra Pro</h3>
+                    <p class="product-desc">Se instala en 5 min sin cables ni Wi-Fi. Con tarjeta SIM 4G, batería 9000mAh, rotación 360º y visión nocturna a color.</p>
+                    <a href="https://youtube.com/shorts/Q9sD2XSpcrg" target="_blank" class="video-btn">▶ Ver Video Original en YouTube</a>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount"></span>
                     </div>
-                    <div>
-                        <div class="price-box-final">
-                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
-                        </div>
-                        <button class="action-btn" onclick="openCheckout('Cámara Solar 4G & Panel Ultra Pro', 115)">⚡ Comprar Automático</button>
-                    </div>
+                    <button class="action-btn" onclick="openCheckout('Cámara Solar 4G & Panel Ultra Pro', 115)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
@@ -149,18 +160,15 @@
                 <div class="card-badge">Más Vendido</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Salud & Tech</span>
-                        <h3 class="product-title">Smart Ring Pro - Anillo Biométrico</h3>
-                        <p class="product-desc">Monitoreo avanzado de sueño, ritmo cardíaco y actividad física en titanio.</p>
+                    <span class="category-tag">Salud & Tech</span>
+                    <h3 class="product-title">Smart Ring Pro - Anillo Biométrico</h3>
+                    <p class="product-desc">Monitoreo avanzado de sueño, ritmo cardíaco y actividad física en titanio.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount"></span>
                     </div>
-                    <div>
-                        <div class="price-box-final">
-                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
-                        </div>
-                        <button class="action-btn" onclick="openCheckout('Smart Ring Pro - Anillo Biométrico', 65)">⚡ Comprar Automático</button>
-                    </div>
+                    <button class="action-btn" onclick="openCheckout('Smart Ring Pro - Anillo Biométrico', 65)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
@@ -169,18 +177,15 @@
                 <div class="card-badge">Tendencia</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Tecnología Aérea</span>
-                        <h3 class="product-title">Mini Dron 4K Ultra HD Plegable</h3>
-                        <p class="product-desc">Cámara dual de alta definición y autonomía extendida.</p>
+                    <span class="category-tag">Tecnología Aérea</span>
+                    <h3 class="product-title">Mini Dron 4K Ultra HD Plegable</h3>
+                    <p class="product-desc">Cámara dual de alta definición y autonomía extendida.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount"></span>
                     </div>
-                    <div>
-                        <div class="price-box-final">
-                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
-                        </div>
-                        <button class="action-btn" onclick="openCheckout('Mini Dron 4K Ultra HD Plegable', 86)">⚡ Comprar Automático</button>
-                    </div>
+                    <button class="action-btn" onclick="openCheckout('Mini Dron 4K Ultra HD Plegable', 86)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
@@ -189,18 +194,15 @@
                 <div class="card-badge">Popular</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Entretenimiento</span>
-                        <h3 class="product-title">Proyector Portátil Inteligente 4K</h3>
-                        <p class="product-desc">Cine en casa compacto con rotación de 180 grados.</p>
+                    <span class="category-tag">Entretenimiento</span>
+                    <h3 class="product-title">Proyector Portátil Inteligente 4K</h3>
+                    <p class="product-desc">Cine en casa compacto con rotación de 180 grados.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount"></span>
                     </div>
-                    <div>
-                        <div class="price-box-final">
-                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
-                        </div>
-                        <button class="action-btn" onclick="openCheckout('Proyector Portátil Inteligente 4K', 75)">⚡ Comprar Automático</button>
-                    </div>
+                    <button class="action-btn" onclick="openCheckout('Proyector Portátil Inteligente 4K', 75)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
@@ -209,18 +211,15 @@
                 <div class="card-badge">Exclusivo Pro</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Producción Musical</span>
-                        <h3 class="product-title">Aura Producer Vault: FL Studio Pack</h3>
-                        <p class="product-desc">Librería profesional para Tech House y Melodic Techno (Master 3:58).</p>
+                    <span class="category-tag">Producción Musical</span>
+                    <h3 class="product-title">Aura Producer Vault: FL Studio Pack</h3>
+                    <p class="product-desc">Librería profesional para Tech House y Melodic Techno (Master 3:58).</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount"></span>
                     </div>
-                    <div>
-                        <div class="price-box-final">
-                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
-                        </div>
-                        <button class="action-btn" onclick="openCheckout('Aura Producer Vault: FL Studio Pack', 28)">⚡ Descarga Automática</button>
-                    </div>
+                    <button class="action-btn" onclick="openCheckout('Aura Producer Vault: FL Studio Pack', 28)">⚡ Descarga Automática</button>
                 </div>
             </div>
 
@@ -229,18 +228,15 @@
                 <div class="card-badge">Producción Pro</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Activos Digitales</span>
-                        <h3 class="product-title">Aura VST Suite: Sintetizadores Pro</h3>
-                        <p class="product-desc">Colección de plugins analógicos virtuales.</p>
+                    <span class="category-tag">Activos Digitales</span>
+                    <h3 class="product-title">Aura VST Suite: Sintetizadores Pro</h3>
+                    <p class="product-desc">Colección de plugins analógicos virtuales.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount"></span>
                     </div>
-                    <div>
-                        <div class="price-box-final">
-                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
-                        </div>
-                        <button class="action-btn" onclick="openCheckout('Aura VST Suite: Sintetizadores Pro', 38)">⚡ Descarga Automática</button>
-                    </div>
+                    <button class="action-btn" onclick="openCheckout('Aura VST Suite: Sintetizadores Pro', 38)">⚡ Descarga Automática</button>
                 </div>
             </div>
 
@@ -249,18 +245,15 @@
                 <div class="card-badge">Para DJs</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Performance DJ</span>
-                        <h3 class="product-title">Serato DJ Pro & Club Remix Vault</h3>
-                        <p class="product-desc">Packs de remixes extendidos y stems.</p>
+                    <span class="category-tag">Performance DJ</span>
+                    <h3 class="product-title">Serato DJ Pro & Club Remix Vault</h3>
+                    <p class="product-desc">Packs de remixes extendidos y stems.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount"></span>
                     </div>
-                    <div>
-                        <div class="price-box-final">
-                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
-                        </div>
-                        <button class="action-btn" onclick="openCheckout('Serato DJ Pro & Club Remix Vault', 18)">⚡ Descarga Automática</button>
-                    </div>
+                    <button class="action-btn" onclick="openCheckout('Serato DJ Pro & Club Remix Vault', 18)">⚡ Descarga Automática</button>
                 </div>
             </div>
 
@@ -269,70 +262,1569 @@
                 <div class="card-badge">Servicio Pro</div>
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Espectáculos</span>
-                        <h3 class="product-title">Aura Live Production: Sonido JBL & Luces</h3>
-                        <p class="product-desc">Alquiler integral de audio profesional e iluminación.</p>
+                    <span class="category-tag">Espectáculos</span>
+                    <h3 class="product-title">Aura Live Production: Sonido JBL & Luces</h3>
+                    <p class="product-desc">Alquiler integral de audio profesional e iluminación.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount"></span>
                     </div>
-                    <div>
-                        <div class="price-box-final">
-                            <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);"></span>
-                        </div>
-                        <button class="action-btn" onclick="openCheckout('Aura Live Production: Sonido JBL & Luces', 160)">⚡ Reservar Automático</button>
-                    </div>
+                    <button class="action-btn" onclick="openCheckout('Aura Live Production: Sonido JBL & Luces', 160)">⚡ Reservar Automático</button>
                 </div>
             </div>
-
-            <!-- PRODUCTOS 9 AL 105: GENERADOS MASIVAMENTE -->
-            <script>
-                // Script generador en bucle para asegurar más de 100 productos en tiempo de ejecución
-                const extraCategories = ['tech', 'music', 'dj', 'events', 'services'];
-                const extraNames = [
-                    'Smartwatch Deportivo Pro', 'Gafas Inteligentes Bluetooth', 'Estabilizador Gimbal 3 Ejes', 'Interface de Audio 4 Canales',
-                    'Preset Melodic Techno Serum', 'Monitores In-Ear Hi-Fi Pro', 'Micrófono Condensador USB', 'Controlador MIDI 25 Teclas',
-                    'Voces Tech House Club', 'Paneles LED RGB Inteligentes', 'Soporte Aluminio Laptop', 'Serato Stems Master Vault',
-                    '4K VJ Loops Pack Clubes', 'Cabezas Móviles LED DMX', 'Niebla Baja Efecto Nubes', 'Gestión de Anuncios Meta',
-                    'Catering Ejecutivo B2B', 'Robot Aspirador Láser', 'Teclado Mecánico RGB Hot-Swap', 'Mouse Vertical Anti-Fatiga',
-                    'Hub USB-C 8 en 1 Pro', 'Power Bank 20000mAh 65W', 'Underground Percussion Loops', 'Masterclass Mezcla & Mastering',
-                    'Latin Club & Reggaeton Vault', 'DJ FX & Risers Pack', 'Pantalla LED Gigante P3.9', 'Estructura Truss Cuadrada',
-                    'Cobertura Foto & Video 4K', 'Brand Identity & Logotipo Pro', 'Landing Page Alta Conversión', 'Mantenimiento Jardines B2B',
-                    'Generador Eléctrico Solar 500W', 'Anillo de Luz LED 18"', 'Master Tracks Vault (FL Stems)', 'Aura Ultimate Pass Vitalicio'
-                ];
-                
-                const grid = document.getElementById('mainGrid');
-                for (let i = 9; i <= 105; i++) {
-                    const cat = extraCategories[i % extraCategories.length];
-                    const name = extraNames[(i - 9) % extraNames.length] + ' #' + i;
-                    const price = 15 + (i * 7) % 250;
+            <!-- PRODUCTO 9 -->
+            <div class="product-card" data-cat="services" data-key="Smartwatch Deportivo Pro #9">
+                <div class="card-badge">Top #9</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Smartwatch Deportivo Pro #9</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
                     
-                    const card = document.createElement('div');
-                    card.className = 'product-card';
-                    card.setAttribute('data-cat', cat);
-                    card.setAttribute('data-key', name.toLowerCase());
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$78</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Smartwatch Deportivo Pro #9',78)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 10 -->
+            <div class="product-card" data-cat="tech" data-key="Gafas Inteligentes Bluetooth #10">
+                <div class="card-badge">Top #10</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Gafas Inteligentes Bluetooth #10</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
                     
-                    card.innerHTML = 
-                        <div class="card-badge">Top #</div>
-                        <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
-                        <div class="card-content">
-                            <div>
-                                <span class="category-tag">Categoría </span>
-                                <h3 class="product-title"></h3>
-                                <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata.</p>
-                            </div>
-                            <div>
-                                <div class="price-box-final">
-                                    <span style="font-size: 0.75rem; color: #10b981; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; line-height: 1.3;">PRECIO FINAL<br>(COMISIÓN INCL.)</span>
-                                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #ffffff; text-shadow: 0 0 10px rgba(16,185,129,0.8);">$projectDir\index.html{price}</span>
-                                </div>
-                                <button class="action-btn" onclick="openCheckout('', )">⚡ Comprar Automático</button>
-                            </div>
-                        </div>
-                    ;
-                    grid.appendChild(card);
-                }
-            </script>
-
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$85</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Gafas Inteligentes Bluetooth #10',85)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 11 -->
+            <div class="product-card" data-cat="music" data-key="Estabilizador Gimbal 3 Ejes #11">
+                <div class="card-badge">Top #11</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Estabilizador Gimbal 3 Ejes #11</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$92</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Estabilizador Gimbal 3 Ejes #11',92)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 12 -->
+            <div class="product-card" data-cat="dj" data-key="Interface de Audio 4 Canales #12">
+                <div class="card-badge">Top #12</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Interface de Audio 4 Canales #12</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$99</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Interface de Audio 4 Canales #12',99)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 13 -->
+            <div class="product-card" data-cat="events" data-key="Preset Melodic Techno Serum #13">
+                <div class="card-badge">Top #13</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Preset Melodic Techno Serum #13</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$106</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Preset Melodic Techno Serum #13',106)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 14 -->
+            <div class="product-card" data-cat="services" data-key="Monitores In-Ear Hi-Fi Pro #14">
+                <div class="card-badge">Top #14</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Monitores In-Ear Hi-Fi Pro #14</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$113</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Monitores In-Ear Hi-Fi Pro #14',113)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 15 -->
+            <div class="product-card" data-cat="tech" data-key="Micrófono Condensador USB #15">
+                <div class="card-badge">Top #15</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Micrófono Condensador USB #15</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$120</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Micrófono Condensador USB #15',120)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 16 -->
+            <div class="product-card" data-cat="music" data-key="Controlador MIDI 25 Teclas #16">
+                <div class="card-badge">Top #16</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Controlador MIDI 25 Teclas #16</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$127</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Controlador MIDI 25 Teclas #16',127)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 17 -->
+            <div class="product-card" data-cat="dj" data-key="Voces Tech House Club #17">
+                <div class="card-badge">Top #17</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Voces Tech House Club #17</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$134</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Voces Tech House Club #17',134)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 18 -->
+            <div class="product-card" data-cat="events" data-key="Paneles LED RGB Inteligentes #18">
+                <div class="card-badge">Top #18</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Paneles LED RGB Inteligentes #18</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$141</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Paneles LED RGB Inteligentes #18',141)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 19 -->
+            <div class="product-card" data-cat="services" data-key="Soporte Aluminio Laptop #19">
+                <div class="card-badge">Top #19</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Soporte Aluminio Laptop #19</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$148</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Soporte Aluminio Laptop #19',148)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 20 -->
+            <div class="product-card" data-cat="tech" data-key="Serato Stems Master Vault #20">
+                <div class="card-badge">Top #20</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Serato Stems Master Vault #20</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$155</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Serato Stems Master Vault #20',155)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 21 -->
+            <div class="product-card" data-cat="music" data-key="4K VJ Loops Pack Clubes #21">
+                <div class="card-badge">Top #21</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">4K VJ Loops Pack Clubes #21</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$162</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('4K VJ Loops Pack Clubes #21',162)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 22 -->
+            <div class="product-card" data-cat="dj" data-key="Cabezas Móviles LED DMX #22">
+                <div class="card-badge">Top #22</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Cabezas Móviles LED DMX #22</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$169</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Cabezas Móviles LED DMX #22',169)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 23 -->
+            <div class="product-card" data-cat="events" data-key="Niebla Baja Efecto Nubes #23">
+                <div class="card-badge">Top #23</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Niebla Baja Efecto Nubes #23</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$176</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Niebla Baja Efecto Nubes #23',176)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 24 -->
+            <div class="product-card" data-cat="services" data-key="Gestión de Anuncios Meta #24">
+                <div class="card-badge">Top #24</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Gestión de Anuncios Meta #24</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$183</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Gestión de Anuncios Meta #24',183)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 25 -->
+            <div class="product-card" data-cat="tech" data-key="Catering Ejecutivo B2B #25">
+                <div class="card-badge">Top #25</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Catering Ejecutivo B2B #25</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$190</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Catering Ejecutivo B2B #25',190)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 26 -->
+            <div class="product-card" data-cat="music" data-key="Robot Aspirador Láser #26">
+                <div class="card-badge">Top #26</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Robot Aspirador Láser #26</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$197</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Robot Aspirador Láser #26',197)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 27 -->
+            <div class="product-card" data-cat="dj" data-key="Teclado Mecánico RGB Hot-Swap #27">
+                <div class="card-badge">Top #27</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Teclado Mecánico RGB Hot-Swap #27</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$204</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Teclado Mecánico RGB Hot-Swap #27',204)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 28 -->
+            <div class="product-card" data-cat="events" data-key="Mouse Vertical Anti-Fatiga #28">
+                <div class="card-badge">Top #28</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Mouse Vertical Anti-Fatiga #28</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$211</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Mouse Vertical Anti-Fatiga #28',211)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 29 -->
+            <div class="product-card" data-cat="services" data-key="Hub USB-C 8 en 1 Pro #29">
+                <div class="card-badge">Top #29</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Hub USB-C 8 en 1 Pro #29</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$218</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Hub USB-C 8 en 1 Pro #29',218)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 30 -->
+            <div class="product-card" data-cat="tech" data-key="Power Bank 20000mAh 65W #30">
+                <div class="card-badge">Top #30</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Power Bank 20000mAh 65W #30</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$225</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Power Bank 20000mAh 65W #30',225)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 31 -->
+            <div class="product-card" data-cat="music" data-key="Underground Percussion Loops #31">
+                <div class="card-badge">Top #31</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Underground Percussion Loops #31</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$232</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Underground Percussion Loops #31',232)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 32 -->
+            <div class="product-card" data-cat="dj" data-key="Masterclass Mezcla & Mastering #32">
+                <div class="card-badge">Top #32</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Masterclass Mezcla & Mastering #32</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$239</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Masterclass Mezcla & Mastering #32',239)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 33 -->
+            <div class="product-card" data-cat="events" data-key="Latin Club & Reggaeton Vault #33">
+                <div class="card-badge">Top #33</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Latin Club & Reggaeton Vault #33</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$246</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Latin Club & Reggaeton Vault #33',246)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 34 -->
+            <div class="product-card" data-cat="services" data-key="DJ FX & Risers Pack #34">
+                <div class="card-badge">Top #34</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">DJ FX & Risers Pack #34</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$253</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('DJ FX & Risers Pack #34',253)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 35 -->
+            <div class="product-card" data-cat="tech" data-key="Pantalla LED Gigante P3.9 #35">
+                <div class="card-badge">Top #35</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Pantalla LED Gigante P3.9 #35</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$260</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Pantalla LED Gigante P3.9 #35',260)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 36 -->
+            <div class="product-card" data-cat="music" data-key="Estructura Truss Cuadrada #36">
+                <div class="card-badge">Top #36</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Estructura Truss Cuadrada #36</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$17</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Estructura Truss Cuadrada #36',17)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 37 -->
+            <div class="product-card" data-cat="dj" data-key="Cobertura Foto & Video 4K #37">
+                <div class="card-badge">Top #37</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Cobertura Foto & Video 4K #37</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$24</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Cobertura Foto & Video 4K #37',24)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 38 -->
+            <div class="product-card" data-cat="events" data-key="Brand Identity & Logotipo Pro #38">
+                <div class="card-badge">Top #38</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Brand Identity & Logotipo Pro #38</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$31</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Brand Identity & Logotipo Pro #38',31)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 39 -->
+            <div class="product-card" data-cat="services" data-key="Landing Page Alta Conversión #39">
+                <div class="card-badge">Top #39</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Landing Page Alta Conversión #39</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$38</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Landing Page Alta Conversión #39',38)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 40 -->
+            <div class="product-card" data-cat="tech" data-key="Mantenimiento Jardines B2B #40">
+                <div class="card-badge">Top #40</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Mantenimiento Jardines B2B #40</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$45</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Mantenimiento Jardines B2B #40',45)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 41 -->
+            <div class="product-card" data-cat="music" data-key="Generador Eléctrico Solar 500W #41">
+                <div class="card-badge">Top #41</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Generador Eléctrico Solar 500W #41</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$52</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Generador Eléctrico Solar 500W #41',52)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 42 -->
+            <div class="product-card" data-cat="dj" data-key="Anillo de Luz LED 18" #42">
+                <div class="card-badge">Top #42</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Anillo de Luz LED 18" #42</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$59</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Anillo de Luz LED 18" #42',59)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 43 -->
+            <div class="product-card" data-cat="events" data-key="Master Tracks Vault (FL Stems) #43">
+                <div class="card-badge">Top #43</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Master Tracks Vault (FL Stems) #43</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$66</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Master Tracks Vault (FL Stems) #43',66)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 44 -->
+            <div class="product-card" data-cat="services" data-key="Aura Ultimate Pass Vitalicio #44">
+                <div class="card-badge">Top #44</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Aura Ultimate Pass Vitalicio #44</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$73</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Aura Ultimate Pass Vitalicio #44',73)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 45 -->
+            <div class="product-card" data-cat="tech" data-key="Smartwatch Deportivo Pro #45">
+                <div class="card-badge">Top #45</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Smartwatch Deportivo Pro #45</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$80</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Smartwatch Deportivo Pro #45',80)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 46 -->
+            <div class="product-card" data-cat="music" data-key="Gafas Inteligentes Bluetooth #46">
+                <div class="card-badge">Top #46</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Gafas Inteligentes Bluetooth #46</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$87</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Gafas Inteligentes Bluetooth #46',87)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 47 -->
+            <div class="product-card" data-cat="dj" data-key="Estabilizador Gimbal 3 Ejes #47">
+                <div class="card-badge">Top #47</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Estabilizador Gimbal 3 Ejes #47</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$94</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Estabilizador Gimbal 3 Ejes #47',94)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 48 -->
+            <div class="product-card" data-cat="events" data-key="Interface de Audio 4 Canales #48">
+                <div class="card-badge">Top #48</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Interface de Audio 4 Canales #48</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$101</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Interface de Audio 4 Canales #48',101)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 49 -->
+            <div class="product-card" data-cat="services" data-key="Preset Melodic Techno Serum #49">
+                <div class="card-badge">Top #49</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Preset Melodic Techno Serum #49</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$108</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Preset Melodic Techno Serum #49',108)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 50 -->
+            <div class="product-card" data-cat="tech" data-key="Monitores In-Ear Hi-Fi Pro #50">
+                <div class="card-badge">Top #50</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Monitores In-Ear Hi-Fi Pro #50</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$115</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Monitores In-Ear Hi-Fi Pro #50',115)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 51 -->
+            <div class="product-card" data-cat="music" data-key="Micrófono Condensador USB #51">
+                <div class="card-badge">Top #51</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Micrófono Condensador USB #51</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$122</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Micrófono Condensador USB #51',122)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 52 -->
+            <div class="product-card" data-cat="dj" data-key="Controlador MIDI 25 Teclas #52">
+                <div class="card-badge">Top #52</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Controlador MIDI 25 Teclas #52</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$129</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Controlador MIDI 25 Teclas #52',129)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 53 -->
+            <div class="product-card" data-cat="events" data-key="Voces Tech House Club #53">
+                <div class="card-badge">Top #53</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Voces Tech House Club #53</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$136</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Voces Tech House Club #53',136)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 54 -->
+            <div class="product-card" data-cat="services" data-key="Paneles LED RGB Inteligentes #54">
+                <div class="card-badge">Top #54</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Paneles LED RGB Inteligentes #54</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$143</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Paneles LED RGB Inteligentes #54',143)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 55 -->
+            <div class="product-card" data-cat="tech" data-key="Soporte Aluminio Laptop #55">
+                <div class="card-badge">Top #55</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Soporte Aluminio Laptop #55</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$150</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Soporte Aluminio Laptop #55',150)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 56 -->
+            <div class="product-card" data-cat="music" data-key="Serato Stems Master Vault #56">
+                <div class="card-badge">Top #56</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Serato Stems Master Vault #56</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$157</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Serato Stems Master Vault #56',157)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 57 -->
+            <div class="product-card" data-cat="dj" data-key="4K VJ Loops Pack Clubes #57">
+                <div class="card-badge">Top #57</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">4K VJ Loops Pack Clubes #57</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$164</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('4K VJ Loops Pack Clubes #57',164)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 58 -->
+            <div class="product-card" data-cat="events" data-key="Cabezas Móviles LED DMX #58">
+                <div class="card-badge">Top #58</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Cabezas Móviles LED DMX #58</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$171</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Cabezas Móviles LED DMX #58',171)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 59 -->
+            <div class="product-card" data-cat="services" data-key="Niebla Baja Efecto Nubes #59">
+                <div class="card-badge">Top #59</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Niebla Baja Efecto Nubes #59</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$178</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Niebla Baja Efecto Nubes #59',178)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 60 -->
+            <div class="product-card" data-cat="tech" data-key="Gestión de Anuncios Meta #60">
+                <div class="card-badge">Top #60</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Gestión de Anuncios Meta #60</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$185</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Gestión de Anuncios Meta #60',185)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 61 -->
+            <div class="product-card" data-cat="music" data-key="Catering Ejecutivo B2B #61">
+                <div class="card-badge">Top #61</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Catering Ejecutivo B2B #61</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$192</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Catering Ejecutivo B2B #61',192)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 62 -->
+            <div class="product-card" data-cat="dj" data-key="Robot Aspirador Láser #62">
+                <div class="card-badge">Top #62</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Robot Aspirador Láser #62</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$199</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Robot Aspirador Láser #62',199)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 63 -->
+            <div class="product-card" data-cat="events" data-key="Teclado Mecánico RGB Hot-Swap #63">
+                <div class="card-badge">Top #63</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Teclado Mecánico RGB Hot-Swap #63</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$206</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Teclado Mecánico RGB Hot-Swap #63',206)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 64 -->
+            <div class="product-card" data-cat="services" data-key="Mouse Vertical Anti-Fatiga #64">
+                <div class="card-badge">Top #64</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Mouse Vertical Anti-Fatiga #64</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$213</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Mouse Vertical Anti-Fatiga #64',213)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 65 -->
+            <div class="product-card" data-cat="tech" data-key="Hub USB-C 8 en 1 Pro #65">
+                <div class="card-badge">Top #65</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Hub USB-C 8 en 1 Pro #65</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$220</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Hub USB-C 8 en 1 Pro #65',220)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 66 -->
+            <div class="product-card" data-cat="music" data-key="Power Bank 20000mAh 65W #66">
+                <div class="card-badge">Top #66</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Power Bank 20000mAh 65W #66</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$227</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Power Bank 20000mAh 65W #66',227)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 67 -->
+            <div class="product-card" data-cat="dj" data-key="Underground Percussion Loops #67">
+                <div class="card-badge">Top #67</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Underground Percussion Loops #67</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$234</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Underground Percussion Loops #67',234)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 68 -->
+            <div class="product-card" data-cat="events" data-key="Masterclass Mezcla & Mastering #68">
+                <div class="card-badge">Top #68</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Masterclass Mezcla & Mastering #68</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$241</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Masterclass Mezcla & Mastering #68',241)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 69 -->
+            <div class="product-card" data-cat="services" data-key="Latin Club & Reggaeton Vault #69">
+                <div class="card-badge">Top #69</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Latin Club & Reggaeton Vault #69</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$248</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Latin Club & Reggaeton Vault #69',248)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 70 -->
+            <div class="product-card" data-cat="tech" data-key="DJ FX & Risers Pack #70">
+                <div class="card-badge">Top #70</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">DJ FX & Risers Pack #70</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$255</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('DJ FX & Risers Pack #70',255)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 71 -->
+            <div class="product-card" data-cat="music" data-key="Pantalla LED Gigante P3.9 #71">
+                <div class="card-badge">Top #71</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Pantalla LED Gigante P3.9 #71</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$262</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Pantalla LED Gigante P3.9 #71',262)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 72 -->
+            <div class="product-card" data-cat="dj" data-key="Estructura Truss Cuadrada #72">
+                <div class="card-badge">Top #72</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Estructura Truss Cuadrada #72</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$19</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Estructura Truss Cuadrada #72',19)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 73 -->
+            <div class="product-card" data-cat="events" data-key="Cobertura Foto & Video 4K #73">
+                <div class="card-badge">Top #73</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Cobertura Foto & Video 4K #73</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$26</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Cobertura Foto & Video 4K #73',26)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 74 -->
+            <div class="product-card" data-cat="services" data-key="Brand Identity & Logotipo Pro #74">
+                <div class="card-badge">Top #74</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Brand Identity & Logotipo Pro #74</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$33</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Brand Identity & Logotipo Pro #74',33)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 75 -->
+            <div class="product-card" data-cat="tech" data-key="Landing Page Alta Conversión #75">
+                <div class="card-badge">Top #75</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Landing Page Alta Conversión #75</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$40</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Landing Page Alta Conversión #75',40)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 76 -->
+            <div class="product-card" data-cat="music" data-key="Mantenimiento Jardines B2B #76">
+                <div class="card-badge">Top #76</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Mantenimiento Jardines B2B #76</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$47</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Mantenimiento Jardines B2B #76',47)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 77 -->
+            <div class="product-card" data-cat="dj" data-key="Generador Eléctrico Solar 500W #77">
+                <div class="card-badge">Top #77</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Generador Eléctrico Solar 500W #77</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$54</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Generador Eléctrico Solar 500W #77',54)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 78 -->
+            <div class="product-card" data-cat="events" data-key="Anillo de Luz LED 18" #78">
+                <div class="card-badge">Top #78</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Anillo de Luz LED 18" #78</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$61</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Anillo de Luz LED 18" #78',61)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 79 -->
+            <div class="product-card" data-cat="services" data-key="Master Tracks Vault (FL Stems) #79">
+                <div class="card-badge">Top #79</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Master Tracks Vault (FL Stems) #79</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$68</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Master Tracks Vault (FL Stems) #79',68)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 80 -->
+            <div class="product-card" data-cat="tech" data-key="Aura Ultimate Pass Vitalicio #80">
+                <div class="card-badge">Top #80</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Aura Ultimate Pass Vitalicio #80</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$75</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Aura Ultimate Pass Vitalicio #80',75)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 81 -->
+            <div class="product-card" data-cat="music" data-key="Smartwatch Deportivo Pro #81">
+                <div class="card-badge">Top #81</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Smartwatch Deportivo Pro #81</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$82</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Smartwatch Deportivo Pro #81',82)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 82 -->
+            <div class="product-card" data-cat="dj" data-key="Gafas Inteligentes Bluetooth #82">
+                <div class="card-badge">Top #82</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Gafas Inteligentes Bluetooth #82</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$89</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Gafas Inteligentes Bluetooth #82',89)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 83 -->
+            <div class="product-card" data-cat="events" data-key="Estabilizador Gimbal 3 Ejes #83">
+                <div class="card-badge">Top #83</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Estabilizador Gimbal 3 Ejes #83</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$96</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Estabilizador Gimbal 3 Ejes #83',96)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 84 -->
+            <div class="product-card" data-cat="services" data-key="Interface de Audio 4 Canales #84">
+                <div class="card-badge">Top #84</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Interface de Audio 4 Canales #84</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$103</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Interface de Audio 4 Canales #84',103)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 85 -->
+            <div class="product-card" data-cat="tech" data-key="Preset Melodic Techno Serum #85">
+                <div class="card-badge">Top #85</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Preset Melodic Techno Serum #85</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$110</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Preset Melodic Techno Serum #85',110)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 86 -->
+            <div class="product-card" data-cat="music" data-key="Monitores In-Ear Hi-Fi Pro #86">
+                <div class="card-badge">Top #86</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Monitores In-Ear Hi-Fi Pro #86</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$117</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Monitores In-Ear Hi-Fi Pro #86',117)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 87 -->
+            <div class="product-card" data-cat="dj" data-key="Micrófono Condensador USB #87">
+                <div class="card-badge">Top #87</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Micrófono Condensador USB #87</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$124</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Micrófono Condensador USB #87',124)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 88 -->
+            <div class="product-card" data-cat="events" data-key="Controlador MIDI 25 Teclas #88">
+                <div class="card-badge">Top #88</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Controlador MIDI 25 Teclas #88</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$131</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Controlador MIDI 25 Teclas #88',131)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 89 -->
+            <div class="product-card" data-cat="services" data-key="Voces Tech House Club #89">
+                <div class="card-badge">Top #89</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Voces Tech House Club #89</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$138</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Voces Tech House Club #89',138)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 90 -->
+            <div class="product-card" data-cat="tech" data-key="Paneles LED RGB Inteligentes #90">
+                <div class="card-badge">Top #90</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Paneles LED RGB Inteligentes #90</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$145</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Paneles LED RGB Inteligentes #90',145)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 91 -->
+            <div class="product-card" data-cat="music" data-key="Soporte Aluminio Laptop #91">
+                <div class="card-badge">Top #91</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Soporte Aluminio Laptop #91</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$152</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Soporte Aluminio Laptop #91',152)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 92 -->
+            <div class="product-card" data-cat="dj" data-key="Serato Stems Master Vault #92">
+                <div class="card-badge">Top #92</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Serato Stems Master Vault #92</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$159</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Serato Stems Master Vault #92',159)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 93 -->
+            <div class="product-card" data-cat="events" data-key="4K VJ Loops Pack Clubes #93">
+                <div class="card-badge">Top #93</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">4K VJ Loops Pack Clubes #93</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$166</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('4K VJ Loops Pack Clubes #93',166)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 94 -->
+            <div class="product-card" data-cat="services" data-key="Cabezas Móviles LED DMX #94">
+                <div class="card-badge">Top #94</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Cabezas Móviles LED DMX #94</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$173</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Cabezas Móviles LED DMX #94',173)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 95 -->
+            <div class="product-card" data-cat="tech" data-key="Niebla Baja Efecto Nubes #95">
+                <div class="card-badge">Top #95</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Niebla Baja Efecto Nubes #95</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$180</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Niebla Baja Efecto Nubes #95',180)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 96 -->
+            <div class="product-card" data-cat="music" data-key="Gestión de Anuncios Meta #96">
+                <div class="card-badge">Top #96</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Gestión de Anuncios Meta #96</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$187</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Gestión de Anuncios Meta #96',187)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 97 -->
+            <div class="product-card" data-cat="dj" data-key="Catering Ejecutivo B2B #97">
+                <div class="card-badge">Top #97</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Catering Ejecutivo B2B #97</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$194</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Catering Ejecutivo B2B #97',194)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 98 -->
+            <div class="product-card" data-cat="events" data-key="Robot Aspirador Láser #98">
+                <div class="card-badge">Top #98</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Robot Aspirador Láser #98</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$201</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Robot Aspirador Láser #98',201)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 99 -->
+            <div class="product-card" data-cat="services" data-key="Teclado Mecánico RGB Hot-Swap #99">
+                <div class="card-badge">Top #99</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Teclado Mecánico RGB Hot-Swap #99</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$208</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Teclado Mecánico RGB Hot-Swap #99',208)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 100 -->
+            <div class="product-card" data-cat="tech" data-key="Mouse Vertical Anti-Fatiga #100">
+                <div class="card-badge">Top #100</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Mouse Vertical Anti-Fatiga #100</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$215</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Mouse Vertical Anti-Fatiga #100',215)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 101 -->
+            <div class="product-card" data-cat="music" data-key="Hub USB-C 8 en 1 Pro #101">
+                <div class="card-badge">Top #101</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría music</span>
+                    <h3 class="product-title">Hub USB-C 8 en 1 Pro #101</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$222</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Hub USB-C 8 en 1 Pro #101',222)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 102 -->
+            <div class="product-card" data-cat="dj" data-key="Power Bank 20000mAh 65W #102">
+                <div class="card-badge">Top #102</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría dj</span>
+                    <h3 class="product-title">Power Bank 20000mAh 65W #102</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$229</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Power Bank 20000mAh 65W #102',229)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 103 -->
+            <div class="product-card" data-cat="events" data-key="Underground Percussion Loops #103">
+                <div class="card-badge">Top #103</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría events</span>
+                    <h3 class="product-title">Underground Percussion Loops #103</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$236</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Underground Percussion Loops #103',236)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 104 -->
+            <div class="product-card" data-cat="services" data-key="Masterclass Mezcla & Mastering #104">
+                <div class="card-badge">Top #104</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría services</span>
+                    <h3 class="product-title">Masterclass Mezcla & Mastering #104</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$243</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Masterclass Mezcla & Mastering #104',243)">⚡ Comprar Automático</button>
+                </div>
+            </div>
+            <!-- PRODUCTO 105 -->
+            <div class="product-card" data-cat="tech" data-key="Latin Club & Reggaeton Vault #105">
+                <div class="card-badge">Top #105</div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
+                <div class="card-content">
+                    <span class="category-tag">Categoría tech</span>
+                    <h3 class="product-title">Latin Club & Reggaeton Vault #105</h3>
+                    <p class="product-desc">Activo digital o dispositivo automatizado verificado para entrega inmediata en el ecosistema.</p>
+                    
+                    <div class="price-box-bulletproof">
+                        <span class="p-label">Precio Final (Comisión Incl.)</span>
+                        <span class="p-amount">$250</span>
+                    </div>
+                    <button class="action-btn" onclick="openCheckout('Latin Club & Reggaeton Vault #105',250)">⚡ Comprar Automático</button>
+                </div>
+            </div>
         </div>
 
         <!-- MODAL DE CHECKOUT -->
@@ -394,7 +1886,7 @@
             const doc = document.getElementById('clientDoc').value;
             const address = document.getElementById('clientAddress').value;
 
-            const text = * NUEVO PEDIDO - AURA GLOBAL EMPIRE *%0A%0A📦 *Producto:* %0A💵 *Total:* $projectDir\index.html{currentPrice}%0A%0A👤 *Cliente:* %0A🆔 *Cédula/RUC:* %0A📍 *Dirección:* %0A%0A¡Hola! He completado mi orden en la web y deseo proceder con el pago y envío.;
+            const text = * NUEVO PEDIDO - AURA GLOBAL EMPIRE *%0A%0A📦 *Producto:* %0A💵 *Total:* $projectDir\index.html{currentPrice}%0A%0A👤 *Cliente:* Latin Club & Reggaeton Vault #105%0A🆔 *Cédula/RUC:* %0A📍 *Dirección:* %0A%0A¡Hola! He completado mi orden en la web y deseo proceder con el pago y envío.;
 
             const waUrl = https://wa.me/593969652435?text=;
             window.open(waUrl, '_blank');
