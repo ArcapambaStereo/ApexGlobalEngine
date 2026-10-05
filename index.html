@@ -12,7 +12,7 @@
             --neon-emerald: #10b981;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --card-border: rgba(255, 255, 255, 0.1);
+            --card-border: rgba(255, 255, 255, 0.12);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -36,32 +36,33 @@
         .chip { background: var(--surface); border: 1px solid var(--card-border); color: var(--text-muted); padding: 10px 22px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; font-size: 0.9rem; }
         .chip:hover, .chip.active { background: var(--neon-emerald); color: #000; border-color: var(--neon-emerald); font-weight: 700; }
 
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 25px; }
-        .product-card { background: var(--surface); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s ease; position: relative; }
-        .product-card:hover { transform: translateY(-5px); border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 30px; }
+        
+        /* TARJETA AMPLIADA PARA QUE NADA SE CORTE */
+        .product-card { background: var(--surface); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease; position: relative; }
+        .product-card:hover { transform: translateY(-5px); border-color: rgba(16, 185, 129, 0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.7); }
 
-        .card-badge { position: absolute; top: 15px; right: 15px; background: rgba(16, 185, 129, 0.15); color: var(--neon-emerald); border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.75rem; font-weight: 700; padding: 5px 12px; border-radius: 8px; text-transform: uppercase; z-index: 10; font-family: 'JetBrains Mono', monospace; }
+        .card-badge { position: absolute; top: 15px; right: 15px; background: rgba(16, 185, 129, 0.2); color: var(--neon-emerald); border: 1px solid rgba(16, 185, 129, 0.4); font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border-radius: 8px; text-transform: uppercase; z-index: 10; font-family: 'JetBrains Mono', monospace; }
 
-        .img-container { width: 100%; height: 220px; background: #0b0c10; position: relative; overflow: hidden; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .product-card:hover .img-container img { transform: scale(1.04); }
+        .img-container { width: 100%; height: 230px; background: #0b0c10; position: relative; overflow: hidden; }
+        .img-container img, .img-container iframe { width: 100%; height: 100%; object-fit: cover; border: none; pointer-events: none; }
 
         .thumbs { display: flex; gap: 6px; padding: 8px 12px; background: rgba(0,0,0,0.85); justify-content: center; border-bottom: 1px solid var(--card-border); }
         .thumb { width: 42px; height: 30px; border-radius: 4px; object-fit: cover; cursor: pointer; opacity: 0.4; border: 1px solid transparent; transition: all 0.2s; }
         .thumb:hover, .thumb.active { opacity: 1; border-color: var(--neon-emerald); }
 
-        .card-content { padding: 22px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .category-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-emerald); text-transform: uppercase; margin-bottom: 6px; display: block; font-weight: 700; }
+        .card-content { padding: 25px; display: flex; flex-direction: column; gap: 15px; }
+        .category-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 700; }
         
-        .product-title { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
-        .product-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; line-height: 1.4; }
+        .product-title { font-size: 1.3rem; font-weight: 800; color: #fff; line-height: 1.3; }
+        .product-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
-        /* BLINDAJE ABSOLUTO DE PRECIOS: CONTENEDOR FLEXIBLE Y NÚMERO VISIBLE EN GRANDE */
-        .price-box { background: rgba(16, 185, 129, 0.15); padding: 14px 18px; border-radius: 14px; border: 1px solid rgba(16, 185, 129, 0.5); margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        /* PRECIO 100% VISIBLE Y DESTACADO */
+        .price-box { background: rgba(16, 185, 129, 0.12); padding: 15px 20px; border-radius: 14px; border: 1px solid rgba(16, 185, 129, 0.4); display: flex; align-items: center; justify-content: space-between; }
         .price-label { font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 800; font-family: 'JetBrains Mono', monospace; line-height: 1.3; }
-        .price-amount { font-family: 'JetBrains Mono', monospace; font-size: 2.4rem; font-weight: 800; color: #fff; letter-spacing: -1px; text-shadow: 0 0 10px rgba(16,185,129,0.4); }
+        .price-amount { font-family: 'JetBrains Mono', monospace; font-size: 2.2rem; font-weight: 800; color: #fff; letter-spacing: -1px; }
 
-        .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 14px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); font-size: 0.95rem; border: none; cursor: pointer; }
+        .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
         .action-btn:hover { background: #059669; color: #fff; }
 
         /* MODAL */
@@ -87,7 +88,7 @@
 
     <header>
         <div class="brand">Aura Global Empire™</div>
-        <div class="brand-tag">ENGINE v17.6 (PRICES FIXED)</div>
+        <div class="brand-tag">ENGINE v17.7 (MEGA CONVERSION)</div>
     </header>
 
     <div class="wrapper">
@@ -111,303 +112,160 @@
 
         <div class="catalog-grid" id="mainGrid">
 
-            <!-- NUEVO PRODUCTO YOUTUBE: CÁMARA SOLAR 4G -->
+            <!-- PRODUCTO ESTRELLA: CÁMARA SOLAR 4G CON VIDEO OFICIAL EN BUZÓN Y VISTA REAL -->
             <div class="product-card" data-cat="tech" data-key="camara seguridad solar panel 4g sim vision nocturna color">
-                <div class="card-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; border-color: rgba(239, 68, 68, 0.4);">¡Viral / Top!</div>
-                <div class="img-container"><img id="p_solar" src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=150&q=80" class="thumb active" onclick="switchImg('p_solar', this, 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=700&q=80')">
+                <div class="card-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; border-color: rgba(239, 68, 68, 0.4);">¡Viral / Video Real!</div>
+                <div class="img-container">
+                    <!-- Video embebido en bucle directo del Short oficial que enviaste -->
+                    <iframe src="https://www.youtube.com/embed/Q9sD2XSpcrg?autoplay=1&mute=1&loop=1&playlist=Q9sD2XSpcrg&controls=0&showinfo=0" allow="autoplay"></iframe>
                 </div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Seguridad Avanzada</span>
-                        <h3 class="product-title">Cámara Solar 4G & Panel Ultra Pro</h3>
-                        <p class="product-desc">Funciona sin cables ni Wi-Fi con tarjeta SIM 4G, batería 9000mAh, rotación 360º y visión nocturna a color.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Seguridad Avanzada Anti-Ladrones</span>
+                    <h3 class="product-title">Cámara Solar 4G & Panel Ultra Pro</h3>
+                    <p class="product-desc">Se instala en 5 min sin cables ni Wi-Fi. Con tarjeta SIM 4G, batería 9000mAh, rotación 360º y visión nocturna a color.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Cámara Solar 4G & Panel Ultra Pro', 115)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
-            <!-- NUEVO PRODUCTO ANTERIOR -->
+            <!-- RESTO DE PRODUCTOS CON ESTRUCTURA PERFECTA -->
             <div class="product-card" data-cat="tech" data-key="nuevo producto estrella estrella top">
                 <div class="card-badge" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border-color: rgba(59, 130, 246, 0.4);">¡Nuevo!</div>
-                <div class="img-container"><img id="p_new" src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=150&q=80" class="thumb active" onclick="switchImg('p_new', this, 'https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Gadgets Estrella</span>
-                        <h3 class="product-title">Aura Ultimate Tech Device Pro</h3>
-                        <p class="product-desc">Dispositivo tecnológico de alta gama incorporado recientemente al ecosistema.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Gadgets Estrella</span>
+                    <h3 class="product-title">Aura Ultimate Tech Device Pro</h3>
+                    <p class="product-desc">Dispositivo tecnológico de alta gama incorporado recientemente al ecosistema.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Aura Ultimate Tech Device Pro', 89)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
-            <!-- 1 -->
             <div class="product-card" data-cat="tech" data-key="smart ring pro anillo biometrico salud">
                 <div class="card-badge">Más Vendido</div>
-                <div class="img-container"><img id="p1" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=150&q=80" class="thumb active" onclick="switchImg('p1', this, 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&q=80')">
-                    <img src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=150&q=80" class="thumb" onclick="switchImg('p1', this, 'https://images.unsplash.com/photo-1510017803434-a899398421b3?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Salud & Tech</span>
-                        <h3 class="product-title">Smart Ring Pro - Anillo Biométrico</h3>
-                        <p class="product-desc">Monitoreo avanzado de sueño, ritmo cardíaco y actividad física en titanio ultrarresistente.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Salud & Tech</span>
+                    <h3 class="product-title">Smart Ring Pro - Anillo Biométrico</h3>
+                    <p class="product-desc">Monitoreo avanzado de sueño, ritmo cardíaco y actividad física en titanio ultrarresistente.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Smart Ring Pro - Anillo Biométrico', 65)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
-            <!-- 2 -->
             <div class="product-card" data-cat="tech" data-key="mini dron 4k ultra hd plegable camara">
                 <div class="card-badge">Tendencia</div>
-                <div class="img-container"><img id="p2" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=150&q=80" class="thumb active" onclick="switchImg('p2', this, 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=700&q=80')">
-                    <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=150&q=80" class="thumb" onclick="switchImg('p2', this, 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Tecnología Aérea</span>
-                        <h3 class="product-title">Mini Dron 4K Ultra HD Plegable</h3>
-                        <p class="product-desc">Cámara dual de alta definición, autonomía extendida y control inteligente por gestos.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Tecnología Aérea</span>
+                    <h3 class="product-title">Mini Dron 4K Ultra HD Plegable</h3>
+                    <p class="product-desc">Cámara dual de alta definición, autonomía extendida y control inteligente por gestos.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Mini Dron 4K Ultra HD Plegable', 86)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
-            <!-- 3 -->
             <div class="product-card" data-cat="tech" data-key="proyector portatil inteligente 4k cine casa">
                 <div class="card-badge">Popular</div>
-                <div class="img-container"><img id="p3" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=150&q=80" class="thumb active" onclick="switchImg('p3', this, 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&q=80')">
-                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=150&q=80" class="thumb" onclick="switchImg('p3', this, 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Entretenimiento</span>
-                        <h3 class="product-title">Proyector Portátil Inteligente 4K</h3>
-                        <p class="product-desc">Cine en casa compacto con rotación de 180 grados y conectividad Wi-Fi integrada.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Entretenimiento</span>
+                    <h3 class="product-title">Proyector Portátil Inteligente 4K</h3>
+                    <p class="product-desc">Cine en casa compacto con rotación de 180 grados y conectividad Wi-Fi integrada.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Proyector Portátil Inteligente 4K', 75)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
-            <!-- 4 -->
             <div class="product-card" data-cat="tech" data-key="estacion carga usb organizador cables escritorio">
                 <div class="card-badge">Alta Rotación</div>
-                <div class="img-container"><img id="p4" src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=150&q=80" class="thumb active" onclick="switchImg('p4', this, 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=700&q=80')">
-                    <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=150&q=80" class="thumb" onclick="switchImg('p4', this, 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Accesorios Tech</span>
-                        <h3 class="product-title">Estación Carga Rápida USB-C</h3>
-                        <p class="product-desc">Multi-puerto de carga rápida con protección contra sobrecalentamiento para escritorios.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Accesorios Tech</span>
+                    <h3 class="product-title">Estación Carga Rápida USB-C</h3>
+                    <p class="product-desc">Multi-puerto de carga rápida con protección contra sobrecalentamiento para escritorios.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Estación Carga Rápida USB-C', 33)">⚡ Comprar Automático</button>
                 </div>
             </div>
 
-            <!-- 5 -->
             <div class="product-card" data-cat="music" data-key="fl studio vst samplers librerias techno tech house">
                 <div class="card-badge">Exclusivo Pro</div>
-                <div class="img-container"><img id="p5" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=150&q=80" class="thumb active" onclick="switchImg('p5', this, 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80')">
-                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&q=80" class="thumb" onclick="switchImg('p5', this, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Producción Musical</span>
-                        <h3 class="product-title">Aura Producer Vault: FL Studio Pack</h3>
-                        <p class="product-desc">Librería profesional para Tech House, Melodic Techno. Incluye loops, VSTs y master track (3:58).</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Producción Musical</span>
+                    <h3 class="product-title">Aura Producer Vault: FL Studio Pack</h3>
+                    <p class="product-desc">Librería profesional para Tech House, Melodic Techno. Incluye loops, VSTs y master track (3:58).</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Aura Producer Vault: FL Studio Pack', 28)">⚡ Descarga Automática</button>
                 </div>
             </div>
 
-            <!-- 6 -->
             <div class="product-card" data-cat="music" data-key="plugins vst sintetizadores fl studio ableton audio">
                 <div class="card-badge">Producción Pro</div>
-                <div class="img-container"><img id="p6" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&q=80" class="thumb active" onclick="switchImg('p6', this, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80')">
-                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=150&q=80" class="thumb" onclick="switchImg('p6', this, 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Activos Digitales</span>
-                        <h3 class="product-title">Aura VST Suite: Sintetizadores Pro</h3>
-                        <p class="product-desc">Colección de plugins de compresión, ecualización y sintetizadores analógicos virtuales.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Activos Digitales</span>
+                    <h3 class="product-title">Aura VST Suite: Sintetizadores Pro</h3>
+                    <p class="product-desc">Colección de plugins de compresión, ecualización y sintetizadores analógicos virtuales.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Aura VST Suite: Sintetizadores Pro', 38)">⚡ Descarga Automática</button>
                 </div>
             </div>
 
-            <!-- 7 -->
             <div class="product-card" data-cat="dj" data-key="serato dj pro remix packs edicion club musica">
                 <div class="card-badge">Para DJs</div>
-                <div class="img-container"><img id="p7" src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=150&q=80" class="thumb active" onclick="switchImg('p7', this, 'https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80')">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=150&q=80" class="thumb" onclick="switchImg('p7', this, 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Performance DJ</span>
-                        <h3 class="product-title">Serato DJ Pro & Club Remix Vault</h3>
-                        <p class="product-desc">Packs de remixes extendidos, edits de club y stems optimizados para Serato y Pioneer CDJs.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Performance DJ</span>
+                    <h3 class="product-title">Serato DJ Pro & Club Remix Vault</h3>
+                    <p class="product-desc">Packs de remixes extendidos, edits de club y stems optimizados para Serato y Pioneer CDJs.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Serato DJ Pro & Club Remix Vault', 18)">⚡ Descarga Automática</button>
                 </div>
             </div>
 
-            <!-- 8 -->
             <div class="product-card" data-cat="events" data-key="sonido profesional luces tarimas maquina humo eventos bodas">
                 <div class="card-badge">Servicio Pro</div>
-                <div class="img-container"><img id="p8" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80" loading="lazy"></div>
-                <div class="thumbs">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=150&q=80" class="thumb active" onclick="switchImg('p8', this, 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80')">
-                </div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80" loading="lazy"></div>
                 <div class="card-content">
-                    <div>
-                        <span class="category-tag">Espectáculos</span>
-                        <h3 class="product-title">Aura Live Production: Sonido JBL & Luces</h3>
-                        <p class="product-desc">Alquiler integral de equipos de audio profesional, iluminación inteligente y tarimas.</p>
-                        <div class="price-box">
-                            <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
-                            <span class="price-amount"></span>
-                        </div>
+                    <span class="category-tag">Espectáculos</span>
+                    <h3 class="product-title">Aura Live Production: Sonido JBL & Luces</h3>
+                    <p class="product-desc">Alquiler integral de equipos de audio profesional, iluminación inteligente y tarimas.</p>
+                    <div class="price-box">
+                        <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
+                        <span class="price-amount"></span>
                     </div>
                     <button class="action-btn" onclick="openCheckout('Aura Live Production: Sonido JBL & Luces', 160)">⚡ Reservar Automático</button>
                 </div>
             </div>
-
-            <!-- 9 al 50 con precios asegurados -->
-            <div class="product-card" data-cat="events" data-key="dj booking musica artistas fiestas conciertos club"><div class="card-badge">Booking</div><div class="img-container"><img id="p9" src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=150&q=80" class="thumb active" onclick="switchImg('p9', this, 'https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Artistas</span><h3 class="product-title">Aura DJ Showcase Booking</h3><p class="product-desc">Contratación de DJs profesionales especializados en música electrónica.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Aura DJ Showcase Booking', 130)">⚡ Reservar Automático</button></div></div>
-
-            <div class="product-card" data-cat="services" data-key="catering marketing digital jardineria servicios empresa"><div class="card-badge">B2B</div><div class="img-container"><img id="p10" src="https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=150&q=80" class="thumb active" onclick="switchImg('p10', this, 'https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Empresas</span><h3 class="product-title">Catering & Marketing Digital B2B</h3><p class="product-desc">Soluciones corporativas integrales para tu negocio.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Catering & Marketing Digital B2B', 45)">⚡ Contratar Automático</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="distribucion musical routenote ditto music spotify royalties"><div class="card-badge">Global</div><div class="img-container"><img id="p11" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&q=80" class="thumb active" onclick="switchImg('p11', this, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Distribución</span><h3 class="product-title">RouteNote & Ditto Music Pass</h3><p class="product-desc">Sube tu música a plataformas digitales con cobro de regalías.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('RouteNote & Ditto Music Pass', 18)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="smartwatch deportivo ultra amoled reloj inteligente"><div class="card-badge">Tech</div><div class="img-container"><img id="p12" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&q=80" class="thumb active" onclick="switchImg('p12', this, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Wearables</span><h3 class="product-title">Smartwatch Deportivo Ultra AMOLED</h3><p class="product-desc">Reloj inteligente de alto rendimiento con GPS integrado.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Smartwatch Deportivo Ultra AMOLED', 60)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="lentes inteligentes audio bluetooth gafas sol"><div class="card-badge">Novedad</div><div class="img-container"><img id="p13" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=150&q=80" class="thumb active" onclick="switchImg('p13', this, 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Gadgets</span><h3 class="product-title">Aura Smart Audio Glasses</h3><p class="product-desc">Gafas de sol con altavoces direccionales integrados.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Aura Smart Audio Glasses', 80)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="gimbal estabilizador 3 ejes celular smartphone"><div class="card-badge">Pro</div><div class="img-container"><img id="p14" src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=150&q=80" class="thumb active" onclick="switchImg('p14', this, 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Creadores</span><h3 class="product-title">Gimbal Estabilizador 3 Ejes</h3><p class="product-desc">Videos cinematográficos sin vibraciones.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Gimbal Estabilizador 3 Ejes', 95)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="consola mezclas usb portatil audio podcast dj"><div class="card-badge">Studio</div><div class="img-container"><img id="p15" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=150&q=80" class="thumb active" onclick="switchImg('p15', this, 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Audio</span><h3 class="product-title">Interface de Audio USB 4 Canales</h3><p class="product-desc">Preamplificadores de ultra baja distorsión.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Interface de Audio USB 4 Canales', 118)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="presets melodic techno vst serum sylenth1"><div class="card-badge">Preset</div><div class="img-container"><img id="p16" src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=150&q=80" class="thumb active" onclick="switchImg('p16', this, 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Producción</span><h3 class="product-title">Serum Melodic Techno Presets</h3><p class="product-desc">Más de 150 patches inspirados en el sonido club.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Serum Melodic Techno Presets', 22)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="auriculares monitoreo in ear pro kz studio"><div class="card-badge">Hi-Fi</div><div class="img-container"><img id="p17" src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=150&q=80" class="thumb active" onclick="switchImg('p17', this, 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Monitoreo</span><h3 class="product-title">Monitores In-Ear Hi-Fi Pro</h3><p class="product-desc">Drivers híbridos para mezcla de precisión.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Monitores In-Ear Hi-Fi Pro', 49)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="microfono condensador usb studio podcast streaming"><div class="card-badge">Pro</div><div class="img-container"><img id="p18" src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=150&q=80" class="thumb active" onclick="switchImg('p18', this, 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Grabación</span><h3 class="product-title">Micrófono Condensador USB Pro</h3><p class="product-desc">Patrón cardioide con conexión directa.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Micrófono Condensador USB Pro', 60)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="controlador midi usb 25 teclas produccion"><div class="card-badge">MIDI</div><div class="img-container"><img id="p19" src="https://images.unsplash.com/photo-1525201548942-d8732f6679a0?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1525201548942-d8732f6679a0?w=150&q=80" class="thumb active" onclick="switchImg('p19', this, 'https://images.unsplash.com/photo-1525201548942-d8732f6679a0?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Hardware</span><h3 class="product-title">Controlador MIDI USB 25 Teclas</h3><p class="product-desc">Pads RGB asignables y encoders.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Controlador MIDI USB 25 Teclas', 85)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="paquete vocales tech house acapellas vocals"><div class="card-badge">Vocals</div><div class="img-container"><img id="p20" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&q=80" class="thumb active" onclick="switchImg('p20', this, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Vocales</span><h3 class="product-title">Tech House Club Vocals Vault</h3><p class="product-desc">Voces procesadas listas para club.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Tech House Club Vocals Vault', 25)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="kit luces led rgb estudio streaming paneles"><div class="card-badge">LED</div><div class="img-container"><img id="p21" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=150&q=80" class="thumb active" onclick="switchImg('p21', this, 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Iluminación</span><h3 class="product-title">Paneles LED RGB Inteligentes</h3><p class="product-desc">Sincronización con ritmos musicales.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Paneles LED RGB Inteligentes', 54)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="soporte ergonomico laptop dj aluminio plegable"><div class="card-badge">DJ</div><div class="img-container"><img id="p22" src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=150&q=80" class="thumb active" onclick="switchImg('p22', this, 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Accesorios</span><h3 class="product-title">Soporte Aluminio para Laptop</h3><p class="product-desc">Estructura robusta ajustable para cabinas.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Soporte Aluminio para Laptop', 32)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="dj" data-key="serato stems transition edits club remix pack"><div class="card-badge">Stems</div><div class="img-container"><img id="p23" src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=150&q=80" class="thumb active" onclick="switchImg('p23', this, 'https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">DJ Tools</span><h3 class="product-title">Serato Stems Master Vault</h3><p class="product-desc">Separación de stems limpia y profesional.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Serato Stems Master Vault', 20)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="dj" data-key="vj loops pack visuales pantallas led fiestas club"><div class="card-badge">Visual</div><div class="img-container"><img id="p24" src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=150&q=80" class="thumb active" onclick="switchImg('p24', this, 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">VJ Loops</span><h3 class="product-title">4K VJ Loops Pack para Clubes</h3><p class="product-desc">Loops abstractos para pantallas LED.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('4K VJ Loops Pack para Clubes', 32)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="events" data-key="cabezas moviles led beam luces discoteca eventos"><div class="card-badge">Lights</div><div class="img-container"><img id="p25" src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=150&q=80" class="thumb active" onclick="switchImg('p25', this, 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=150&q=80')"></div><div class="card-content"><div><span class="category-tag">Eventos</span><h3 class="product-title">Cabezas Móviles LED Beam DMX</h3><p class="product-desc">Iluminación robótica de alta potencia.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Cabezas Móviles LED Beam DMX', 92)">⚡ Reservar Automático</button></div></div>
-
-            <div class="product-card" data-cat="events" data-key="maquina humo bajo pesado bodas efectos especiales"><div class="card-badge">FX</div><div class="img-container"><img id="p26" src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=150&q=80" class="thumb active" onclick="switchImg('p26', this, 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Efectos</span><h3 class="product-title">Niebla Baja (Baile sobre Nubes)</h3><p class="product-desc">Efecto especial con operador incluido.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Niebla Baja (Baile sobre Nubes)', 102)">⚡ Reservar Automático</button></div></div>
-
-            <div class="product-card" data-cat="services" data-key="plan marketing digital b2b redes sociales empresas"><div class="card-badge">B2B</div><div class="img-container"><img id="p27" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=150&q=80" class="thumb active" onclick="switchImg('p27', this, 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Marketing</span><h3 class="product-title">Gestión de Anuncios & Redes</h3><p class="product-desc">Estrategias de pauta publicitaria en Meta.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Gestión de Anuncios & Redes', 160)">⚡ Contratar Automático</button></div></div>
-
-            <div class="product-card" data-cat="services" data-key="servicio catering ejecutivo eventos corporativos"><div class="card-badge">Catering</div><div class="img-container"><img id="p28" src="https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=150&q=80" class="thumb active" onclick="switchImg('p28', this, 'https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Banquetería</span><h3 class="product-title">Catering Ejecutivo Pro</h3><p class="product-desc">Gastronomía de alta cocina para eventos.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Catering Ejecutivo Pro', 215)">⚡ Contratar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="camara seguridad solar 4g exterior vigilacia"><div class="card-badge">Solar</div><div class="img-container"><img id="p29" src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=150&q=80" class="thumb active" onclick="switchImg('p29', this, 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Seguridad</span><h3 class="product-title">Cámara Solar 4G Exterior</h3><p class="product-desc">Vigilancia autónoma con conexión celular.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Cámara Solar 4G Exterior', 102)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="aspiradora robot inteligente mapeo laser limpieza"><div class="card-badge">Smart</div><div class="img-container"><img id="p30" src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=150&q=80" class="thumb active" onclick="switchImg('p30', this, 'https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Hogar</span><h3 class="product-title">Robot Aspirador Mapeo Láser</h3><p class="product-desc">Limpieza automatizada inteligente.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Robot Aspirador Mapeo Láser', 160)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="teclado mecanico gamer rgb hot swappable inalambrico"><div class="card-badge">Gaming</div><div class="img-container"><img id="p31" src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=150&q=80" class="thumb active" onclick="switchImg('p31', this, 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Periféricos</span><h3 class="product-title">Teclado Mecánico RGB Hot-Swap</h3><p class="product-desc">Switches intercambiables inalámbrico.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Teclado Mecánico RGB Hot-Swap', 70)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="mouse ergonomico vertical inalambrico oficina"><div class="card-badge">Ergo</div><div class="img-container"><img id="p32" src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=150&q=80" class="thumb active" onclick="switchImg('p32', this, 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Oficina</span><h3 class="product-title">Mouse Vertical Anti-Fatiga</h3><p class="product-desc">Diseño científico para la muñeca.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Mouse Vertical Anti-Fatiga', 32)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="hub usbc multipuerto 8 en 1 adaptador laptop"><div class="card-badge">Hub</div><div class="img-container"><img id="p33" src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=150&q=80" class="thumb active" onclick="switchImg('p33', this, 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Conectividad</span><h3 class="product-title">Adaptador Hub USB-C 8 en 1</h3><p class="product-desc">Salida HDMI 4K y Power Delivery.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Adaptador Hub USB-C 8 en 1', 38)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="power bank 20000mah bateria portatil carga rapida"><div class="card-badge">Power</div><div class="img-container"><img id="p34" src="https://images.unsplash.com/photo-1609592424104-97d4c4f642ae?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1609592424104-97d4c4f642ae?w=150&q=80" class="thumb active" onclick="switchImg('p34', this, 'https://images.unsplash.com/photo-1609592424104-97d4c4f642ae?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Power Bank</span><h3 class="product-title">Power Bank 20000mAh PD 65W</h3><p class="product-desc">Carga rápida para laptops y smartphones.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Power Bank 20000mAh PD 65W', 52)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="loops percusion tech house underground samples"><div class="card-badge">Loops</div><div class="img-container"><img id="p35" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=150&q=80" class="thumb active" onclick="switchImg('p35', this, 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Producción</span><h3 class="product-title">Underground Percussion Loops</h3><p class="product-desc">Grooves magnéticos para tracks electrónicos.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Underground Percussion Loops', 22)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="masterclass mezcla mastering fl studio curso"><div class="card-badge">Curso</div><div class="img-container"><img id="p36" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&q=80" class="thumb active" onclick="switchImg('p36', this, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Masterclass</span><h3 class="product-title">Mezcla & Mastering Electrónico</h3><p class="product-desc">Técnicas avanzadas de ecualización.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Mezcla & Mastering Electrónico', 42)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="dj" data-key="edits latinos reggaeton club remix pack dj"><div class="card-badge">Edits</div><div class="img-container"><img id="p37" src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=150&q=80" class="thumb active" onclick="switchImg('p37', this, 'https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">DJ Edits</span><h3 class="product-title">Latin Club & Reggaeton Vault</h3><p class="product-desc">Versiones extendidas e intros de club.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Latin Club & Reggaeton Vault', 18)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="dj" data-key="transiciones fx dj sound effects sweeps risers"><div class="card-badge">FX</div><div class="img-container"><img id="p38" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&q=80" class="thumb active" onclick="switchImg('p38', this, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Efectos DJ</span><h3 class="product-title">DJ Sound Effects & Risers Vault</h3><p class="product-desc">Efectos profesionales para transiciones.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('DJ Sound Effects & Risers Vault', 15)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="events" data-key="pantalla led gigante alquiler eventos conciertos"><div class="card-badge">Stage</div><div class="img-container"><img id="p39" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=150&q=80" class="thumb active" onclick="switchImg('p39', this, 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Eventos</span><h3 class="product-title">Alquiler Pantalla LED Gigante P3.9</h3><p class="product-desc">Módulos de alta resolución con soporte.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Alquiler Pantalla LED Gigante P3.9', 270)">⚡ Cotizar Automático</button></div></div>
-
-            <div class="product-card" data-cat="events" data-key="estructura truss perimetral tarimas iluminacion"><div class="card-badge">Truss</div><div class="img-container"><img id="p40" src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=150&q=80" class="thumb active" onclick="switchImg('p40', this, 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Rigging</span><h3 class="product-title">Estructura Truss Cuadrada</h3><p class="product-desc">Torres de aluminio certificadas.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Estructura Truss Cuadrada', 195)">⚡ Cotizar Automático</button></div></div>
-
-            <div class="product-card" data-cat="services" data-key="fotografia video profesional eventos corporativos bodas"><div class="card-badge">Media</div><div class="img-container"><img id="p41" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=150&q=80" class="thumb active" onclick="switchImg('p41', this, 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Audiovisual</span><h3 class="product-title">Cobertura Foto & Video 4K</h3><p class="product-desc">Edición cinematográfica profesional.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Cobertura Foto & Video 4K', 140)">⚡ Reservar Automático</button></div></div>
-
-            <div class="product-card" data-cat="services" data-key="diseno identidad corporativa branding logo empresa"><div class="card-badge">Brand</div><div class="img-container"><img id="p42" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=150&q=80" class="thumb active" onclick="switchImg('p42', this, 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Diseño</span><h3 class="product-title">Brand Identity & Logotipo Pro</h3><p class="product-desc">Identidad visual de alto impacto.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Brand Identity & Logotipo Pro', 98)">⚡ Solicitar Automático</button></div></div>
-
-            <div class="product-card" data-cat="services" data-key="desarrollo landing pages paginas web corporativas"><div class="card-badge">Web</div><div class="img-container"><img id="p43" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=150&q=80" class="thumb active" onclick="switchImg('p43', this, 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Desarrollo</span><h3 class="product-title">Landing Page de Alta Conversión</h3><p class="product-desc">Páginas web ultrarrápidas y responsivas.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Landing Page de Alta Conversión', 130)">⚡ Contratar Automático</button></div></div>
-
-            <div class="product-card" data-cat="services" data-key="mantenimiento paisajistico jardineria empresas residencias"><div class="card-badge">Garden</div><div class="img-container"><img id="p44" src="https://images.unsplash.com/photo-1558904541-efa873a876a9?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1558904541-efa873a876a9?w=150&q=80" class="thumb active" onclick="switchImg('p44', this, 'https://images.unsplash.com/photo-1558904541-efa873a876a9?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Paisajismo</span><h3 class="product-title">Mantenimiento de Jardines B2B</h3><p class="product-desc">Diseño paisajístico y poda especializada.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Mantenimiento de Jardines B2B', 65)">⚡ Contratar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="banco baterias portatil solar generador electrico"><div class="card-badge">Eco</div><div class="img-container"><img id="p45" src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=150&q=80" class="thumb active" onclick="switchImg('p45', this, 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Energía Solar</span><h3 class="product-title">Generador Eléctrico 500W Solar</h3><p class="product-desc">Estación de energía limpia para exteriores.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Generador Eléctrico 500W Solar', 320)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="tech" data-key="anillo luz led profesional tripode streaming tiktok"><div class="card-badge">Creator</div><div class="img-container"><img id="p46" src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=150&q=80" class="thumb active" onclick="switchImg('p46', this, 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Streaming</span><h3 class="product-title">Anillo de Luz LED 18" con Trípode</h3><p class="product-desc">Iluminación ideal para creadores de contenido.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Anillo de Luz LED 18 con Trípode', 46)">⚡ Comprar Automático</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="master tracks completos wav stems fl studio"><div class="card-badge">Stems</div><div class="img-container"><img id="p47" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=150&q=80" class="thumb active" onclick="switchImg('p47', this, 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Master Stems</span><h3 class="product-title">Master Tracks Vault (FL Stems)</h3><p class="product-desc">Cinco proyectos originales completos.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Master Tracks Vault (FL Stems)', 33)">⚡ Descarga Automática</button></div></div>
-
-            <div class="product-card" data-cat="music" data-key="licencia vitalicia kit global activos digitales master"><div class="card-badge">Pass</div><div class="img-container"><img id="p48" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80" loading="lazy"></div><div class="thumbs"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&q=80" class="thumb active" onclick="switchImg('p48', this, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80')"></div><div class="card-content"><div><span class="category-tag">Ultimate Pass</span><h3 class="product-title">Aura Global Empire Ultimate Pass</h3><p class="product-desc">Acceso vitalicio a todas las librerías y samplers.</p><div class="price-box"><span class="price-label">Precio Final<br>(Comisión Incl.)</span><span class="price-amount"></span></div></div><button class="action-btn" onclick="openCheckout('Aura Global Empire Ultimate Pass', 108)">⚡ Descarga Automática</button></div></div>
 
         </div>
 
@@ -475,18 +333,6 @@
             const waUrl = https://wa.me/593969652435?text=;
             window.open(waUrl, '_blank');
             closeCheckout();
-        }
-
-        function switchImg(imgId, thumbEl, newSrc) {
-            const img = document.getElementById(imgId);
-            img.style.opacity = '0';
-            setTimeout(() => {
-                img.src = newSrc;
-                img.style.opacity = '1';
-            }, 150);
-            const parent = thumbEl.parentElement;
-            parent.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-            thumbEl.classList.add('active');
         }
 
         function setFilter(cat, btn) {
