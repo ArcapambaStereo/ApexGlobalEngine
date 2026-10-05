@@ -38,7 +38,7 @@
 
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 30px; }
         
-        /* TARJETA BLINDADA: ALTURA AUTOMÁTICA Y ESPACIO HOLGADO */
+        /* TARJETA BLINDADA: ALTURA AUTOMÁTICA Y SEPARACIÓN CLARA */
         .product-card { background: var(--surface); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s ease; position: relative; }
         .product-card:hover { transform: translateY(-5px); border-color: rgba(16, 185, 129, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
 
@@ -47,19 +47,22 @@
         .img-container { width: 100%; height: 240px; background: #0b0c10; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .img-container img, .img-container video { width: 100%; height: 100%; object-fit: cover; }
 
-        .card-content { padding: 25px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1; }
+        .card-content { padding: 25px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1; justify-content: space-between; }
         .category-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 800; }
         
         .product-title { font-size: 1.3rem; font-weight: 800; color: #fff; line-height: 1.3; }
         .product-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
-        /* PRECIOS CORREGIDOS Y VISIBLES AL 100% */
-        .price-box { background: rgba(16, 185, 129, 0.15); padding: 18px 20px; border-radius: 14px; border: 1px solid rgba(16, 185, 129, 0.5); display: flex; align-items: center; justify-content: space-between; margin-top: 5px; }
+        /* PRECIOS CORREGIDOS CON GRID ESTRICTO (IMPOSIBLE QUE SE OCULTEN) */
+        .price-container { background: rgba(16, 185, 129, 0.15); padding: 16px 20px; border-radius: 14px; border: 1px solid rgba(16, 185, 129, 0.5); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; margin-top: 10px; width: 100%; }
         .price-label { font-size: 0.75rem; color: var(--neon-emerald); text-transform: uppercase; font-weight: 800; font-family: 'JetBrains Mono', monospace; line-height: 1.3; }
-        .price-amount { font-family: 'JetBrains Mono', monospace; font-size: 2.5rem !important; font-weight: 800 !important; color: #ffffff !important; letter-spacing: -1px; text-shadow: 0 0 15px rgba(16,185,129,0.7); display: block !important; visibility: visible !important; opacity: 1 !important; }
+        .price-amount { font-family: 'JetBrains Mono', monospace; font-size: 2.3rem; font-weight: 800; color: #ffffff; letter-spacing: -1px; text-shadow: 0 0 12px rgba(16,185,129,0.6); text-align: right; }
 
-        .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); margin-top: 10px; }
+        .action-btn { display: block; width: 100%; background: #10b981; color: #000; text-align: center; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: all 0.2s; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); margin-top: 12px; }
         .action-btn:hover { background: #059669; color: #fff; }
+
+        .video-btn { display: inline-block; background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; text-decoration: none; margin-top: 8px; text-align: center; font-family: 'JetBrains Mono', monospace; }
+        .video-btn:hover { background: rgba(239, 68, 68, 0.3); color: #fff; }
 
         /* MODAL DE CHECKOUT */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 2000; display: none; justify-content: center; align-items: center; padding: 20px; }
@@ -84,7 +87,7 @@
 
     <header>
         <div class="brand">Aura Global Empire™</div>
-        <div class="brand-tag">ENGINE v17.9 (PRICES & VIDEO FIXED)</div>
+        <div class="brand-tag">ENGINE v18.0 (PRICES & VIDEO FIXED)</div>
     </header>
 
     <div class="wrapper">
@@ -108,12 +111,11 @@
 
         <div class="catalog-grid" id="mainGrid">
 
-            <!-- PRODUCTO 1: CÁMARA SOLAR 4G CON VIDEO EN BUCLE REAL (USANDO LINK DIRECTO DE VIDEO) -->
+            <!-- PRODUCTO 1: CÁMARA SOLAR 4G CON VIDEO INTERACTIVO Y ACCESO DIRECTO AL SHORT -->
             <div class="product-card" data-cat="tech" data-key="camara seguridad solar panel 4g sim vision nocturna color">
-                <div class="card-badge">🔥 Viral / Video en Acción</div>
+                <div class="card-badge">🔥 Viral / Video Real</div>
                 <div class="img-container">
-                    <!-- Video en bucle automático de demostración real -->
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&q=80">
+                    <video autoplay muted loop playsinline>
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-security-camera-recording-a-street-42866-large.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -122,9 +124,10 @@
                         <span class="category-tag">Seguridad Avanzada Anti-Ladrones</span>
                         <h3 class="product-title">Cámara Solar 4G & Panel Ultra Pro</h3>
                         <p class="product-desc">Se instala en 5 min sin cables ni Wi-Fi. Con tarjeta SIM 4G, batería 9000mAh, rotación 360º y visión nocturna a color.</p>
+                        <a href="https://youtube.com/shorts/Q9sD2XSpcrg" target="_blank" class="video-btn">▶ Ver Video Original en YouTube</a>
                     </div>
                     <div>
-                        <div class="price-box">
+                        <div class="price-container">
                             <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
                             <span class="price-amount"></span>
                         </div>
@@ -144,7 +147,7 @@
                         <p class="product-desc">Dispositivo tecnológico de alta gama incorporado recientemente al ecosistema.</p>
                     </div>
                     <div>
-                        <div class="price-box">
+                        <div class="price-container">
                             <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
                             <span class="price-amount"></span>
                         </div>
@@ -164,7 +167,7 @@
                         <p class="product-desc">Monitoreo avanzado de sueño, ritmo cardíaco y actividad física en titanio ultrarresistente.</p>
                     </div>
                     <div>
-                        <div class="price-box">
+                        <div class="price-container">
                             <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
                             <span class="price-amount"></span>
                         </div>
@@ -184,7 +187,7 @@
                         <p class="product-desc">Cámara dual de alta definición, autonomía extendida y control inteligente por gestos.</p>
                     </div>
                     <div>
-                        <div class="price-box">
+                        <div class="price-container">
                             <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
                             <span class="price-amount"></span>
                         </div>
@@ -204,7 +207,7 @@
                         <p class="product-desc">Cine en casa compacto con rotación de 180 grados y conectividad Wi-Fi integrada.</p>
                     </div>
                     <div>
-                        <div class="price-box">
+                        <div class="price-container">
                             <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
                             <span class="price-amount"></span>
                         </div>
@@ -224,7 +227,7 @@
                         <p class="product-desc">Librería profesional para Tech House, Melodic Techno. Incluye loops, VSTs y master track (3:58).</p>
                     </div>
                     <div>
-                        <div class="price-box">
+                        <div class="price-container">
                             <span class="price-label">Precio Final<br>(Comisión Incl.)</span>
                             <span class="price-amount"></span>
                         </div>
